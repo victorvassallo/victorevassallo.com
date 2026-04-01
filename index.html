@@ -492,72 +492,98 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   line-height: 1.7;
 }
 /* PROJECTS PREVIEW */
-.projects-section {
-  padding: 100px 0;
-  background: var(--beige-light);
+.combined-section {
+  background:
+    linear-gradient(to right, var(--off-white) 50%, var(--brown-deep) 50%);
 }
-.projects-grid {
+.combined-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  margin-top: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+.combined-col-left {
+  padding: 90px 48px 90px 0;
+  display: flex;
+  flex-direction: column;
+}
+.combined-col-right {
+  padding: 90px 0 90px 48px;
+  display: flex;
+  flex-direction: column;
+}
+.pf-col-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+  color: var(--brown-deep);
+  line-height: 1.2;
+  margin-top: 10px;
+  margin-bottom: 26px;
+}
+.combined-col-right .pf-col-title { color: var(--beige-warm); }
+.combined-col-right .section-label { color: var(--taupe); }
+.projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
 }
 .project-card {
-  background: var(--off-white);
-  padding: 36px;
+  background: var(--brown-deep);
+  padding: 28px;
   position: relative;
-  overflow: hidden;
-  transition: all 0.35s var(--transition);
-}
-.project-card::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 3px;
-  background: var(--taupe);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.35s var(--transition);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.32s var(--transition), box-shadow 0.32s var(--transition);
 }
 .project-card:hover {
-  background: var(--cream);
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
 }
-.project-card:hover::before { transform: scaleY(1); }
-.project-card.featured {
-  background: var(--brown-deep);
-}
-.project-card.featured .project-title { color: var(--beige-warm); }
-.project-card.featured .project-desc { color: rgba(237,227,213,0.7); }
-.project-card.featured .tag {
-  background: rgba(237,227,213,0.18);
-  color: var(--beige-warm);
-  border-color: rgba(237,227,213,0.38);
-}
-.project-card.featured::before { background: var(--taupe); }
 .project-star {
-  position: absolute;
-  top: 28px; right: 28px;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.65rem;
   font-family: 'DM Mono', monospace;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--taupe);
+  border: 1px solid rgba(196,168,130,0.35);
+  background: rgba(196,168,130,0.08);
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+.project-star::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--taupe);
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(196,168,130,0.5); opacity: 1; }
+  50% { box-shadow: 0 0 0 5px rgba(196,168,130,0); opacity: 0.7; }
 }
 .project-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.25rem;
   font-weight: 500;
-  color: var(--brown-deep);
+  color: var(--beige-warm);
   margin-bottom: 12px;
   line-height: 1.3;
 }
 .project-desc {
   font-size: 0.875rem;
-  color: var(--text-mid);
+  color: rgba(237,227,213,0.68);
   line-height: 1.7;
   margin-bottom: 20px;
+  flex: 1;
 }
 .project-tags {
   display: flex;
@@ -570,59 +596,62 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   font-family: 'DM Mono', monospace;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--brown-light);
+  color: var(--taupe);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: 20px;
   transition: gap 0.2s, color 0.2s;
   cursor: pointer;
   background: none;
   border: none;
 }
-.project-link:hover { color: var(--brown-deep); gap: 10px; }
-.project-card.featured .project-link { color: var(--taupe); }
-.project-card.featured .project-link:hover { color: var(--beige-warm); }
-/* CURRENT FOCUS */
-.focus-section {
-  padding: 80px 0;
-  background: var(--brown-deep);
-}
-.focus-inner {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
-  align-items: center;
-}
-.focus-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--beige-warm);
-  line-height: 1.3;
-}
-.focus-items {
+.project-link:hover { color: var(--beige-warm); gap: 10px; }
+/* FOCUS ITEMS (within combined section) */
+.focus-items-col {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 10px;
+  flex: 1;
 }
 .focus-item {
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(196,168,130,0.15);
+  background: linear-gradient(160deg, rgba(255,255,255,0.96), rgba(245,239,230,0.85));
+  border: 1px solid rgba(100,65,45,0.14);
+  padding: 28px;
   display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.focus-item:first-child { border-top: 1px solid rgba(196,168,130,0.15); }
-.focus-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--taupe);
-  flex-shrink: 0;
+  flex-direction: column;
+  flex: 1;
 }
 .focus-text {
-  font-size: 0.95rem;
-  color: rgba(237,227,213,0.75);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--brown-deep);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.focus-blurb {
+  font-size: 0.875rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin: 0 0 20px;
+  flex: 1;
+}
+.focus-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.focus-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brown-warm);
+  background: rgba(156,107,78,0.1);
+  border: 1px solid rgba(156,107,78,0.2);
+  padding: 3px 9px;
 }
 /* HOME REFRESH LAYER (scoped to page-home only) */
 #page-home section {
@@ -631,12 +660,18 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 }
 #page-home .about-section::before,
 #page-home .build-section::before,
-#page-home .experience-section::before,
-#page-home .projects-section::before,
-#page-home .focus-section::before {
+#page-home .experience-section::before {
   content: '';
   position: absolute;
   inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+#page-home .combined-section::before,
+#page-home .combined-section::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
   pointer-events: none;
   z-index: 0;
 }
@@ -657,20 +692,22 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
     linear-gradient(130deg, rgba(196,168,130,0.12), transparent 50%),
     radial-gradient(circle at 95% 10%, rgba(107,69,53,0.12), transparent 35%);
 }
-#page-home .projects-section::before {
-  background:
-    radial-gradient(circle at 8% 90%, rgba(107,69,53,0.12), transparent 34%),
-    radial-gradient(circle at 92% 12%, rgba(156,107,78,0.14), transparent 32%);
+#page-home .combined-section::before {
+  left: 0; right: 50%;
+  background-image: radial-gradient(circle, rgba(156,107,78,0.18) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
 }
-#page-home .focus-section::before {
+#page-home .combined-section::after {
+  left: 50%; right: 0;
   background-image:
-    repeating-linear-gradient(135deg, rgba(196,168,130,0.07) 0 14px, transparent 14px 28px);
+    linear-gradient(rgba(196,168,130,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,168,130,0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 #page-home .about-section .container,
 #page-home .build-section .container,
 #page-home .experience-section .container,
-#page-home .projects-section .container,
-#page-home .focus-section .container {
+#page-home .combined-section .container {
   position: relative;
   z-index: 1;
 }
@@ -858,32 +895,31 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 #page-home .experience-item.expanded .exp-details-inner {
   padding-top: 18px;
 }
-#page-home .exp-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px 26px;
+#page-home .exp-resume-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 14px;
 }
-#page-home .exp-detail-group {
-  padding: 14px 14px 10px;
-  border: 1px solid rgba(100,65,45,0.14);
-  background: rgba(253,251,248,0.9);
-}
-#page-home .exp-detail-title {
+#page-home .exp-resume-tag {
   font-family: 'DM Mono', monospace;
-  font-size: 0.66rem;
-  letter-spacing: 0.14em;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--brown-light);
-  margin-bottom: 8px;
+  background: rgba(100,65,45,0.07);
+  border: 1px solid rgba(100,65,45,0.14);
+  padding: 3px 9px;
 }
-#page-home .exp-detail-list {
-  margin-left: 16px;
+#page-home .exp-resume-bullets {
+  margin: 0;
+  padding-left: 18px;
   color: var(--text-mid);
-  font-size: 0.84rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
 }
-#page-home .exp-detail-list li + li {
-  margin-top: 6px;
+#page-home .exp-resume-bullets li + li {
+  margin-top: 7px;
 }
 #page-home .exp-expand-hint {
   position: absolute;
@@ -895,17 +931,10 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   text-transform: uppercase;
   color: var(--brown-light);
 }
-#page-home .projects-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  margin-top: 64px;
-  align-items: stretch;
-}
 #page-home .project-card {
   border: 1px solid rgba(100,65,45,0.14);
   box-shadow: 0 12px 30px rgba(46,31,31,0.07);
   border-radius: 16px;
-  min-height: 255px;
   transition: transform 0.32s var(--transition), box-shadow 0.32s var(--transition), border-color 0.32s var(--transition);
 }
 #page-home .project-card:hover {
@@ -913,54 +942,22 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   box-shadow: 0 20px 42px rgba(46,31,31,0.13);
   border-color: rgba(100,65,45,0.24);
 }
-#page-home .project-card:not(.featured) {
-  background:
-    linear-gradient(160deg, rgba(255,255,255,0.96), rgba(245,239,230,0.85));
-}
-#page-home .project-card.featured {
-  grid-column: 1 / -1;
-  min-height: 235px;
+#page-home .project-card {
   background: linear-gradient(130deg, #2e1f1f 0%, #3b2626 100%);
-}
-#page-home .project-card:not(.featured) {
-  min-height: 290px;
-  margin-top: 0;
-  background: linear-gradient(160deg, rgba(255,255,255,0.96), rgba(245,239,230,0.85));
-}
-#page-home .project-card:nth-child(2),
-#page-home .project-card:nth-child(3),
-#page-home .project-card:nth-child(4) {
-  grid-column: auto;
+  flex: 1;
 }
 #page-home .project-card .tag {
-  background: rgba(156,107,78,0.12);
-  border-color: rgba(156,107,78,0.2);
-  color: var(--brown-warm);
-}
-#page-home .project-card.featured .tag {
-  background: rgba(237,227,213,0.18);
-  border-color: rgba(237,227,213,0.42);
+  background: rgba(237,227,213,0.12);
+  border-color: rgba(237,227,213,0.28);
   color: var(--beige-warm);
 }
-#page-home .focus-items {
-  gap: 12px;
-}
 #page-home .focus-item {
-  border: 1px solid rgba(196,168,130,0.2);
-  padding: 18px 18px;
-  background: rgba(46,31,31,0.4);
-  position: relative;
+  box-shadow: 0 8px 24px rgba(46,31,31,0.07);
 }
-#page-home .focus-item::after {
-  content: '->';
-  position: absolute;
-  right: 14px;
-  color: var(--taupe);
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-}
-#page-home .focus-dot {
-  box-shadow: 0 0 0 6px rgba(196,168,130,0.12);
+#page-home .focus-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(46,31,31,0.12);
+  transition: transform 0.32s var(--transition), box-shadow 0.32s var(--transition);
 }
 /* ============================================================
    PAGE 2 — SYSTEMS & PROJECTS
@@ -1054,7 +1051,18 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   border: 1px solid var(--border);
   transition: border-color 0.25s;
 }
-.accordion-item.expanded { border-color: var(--border-strong); }
+.accordion-item.expanded {
+  border-color: var(--border-strong);
+  margin-left: -48px;
+  margin-right: -48px;
+}
+.accordion-item.expanded .accordion-header {
+  padding-left: 76px;
+  padding-right: 76px;
+}
+.accordion-item.expanded .accordion-body {
+  padding: 0 76px 36px;
+}
 .accordion-header {
   display: flex;
   align-items: center;
@@ -1111,11 +1119,18 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   border-top: 1px solid var(--border);
   padding-top: 28px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
 }
-.detail-block { }
-.detail-block.full { grid-column: 1 / -1; }
+.accordion-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.accordion-diagram-col .architecture-placeholder {
+  min-height: 420px;
+}
 .detail-label {
   font-family: 'DM Mono', monospace;
   font-size: 0.65rem;
@@ -1133,71 +1148,35 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   background: var(--brown-deep);
   padding: 16px 20px;
   border-radius: 2px;
-  grid-column: 1 / -1;
 }
 .decision-impact .detail-label { color: var(--taupe); }
 .decision-impact .detail-text { color: rgba(237,227,213,0.85); }
-/* Simplified architecture visual for Opportunity Intelligence item */
-.rag-mini-diagram {
-  border: 1px solid var(--border);
+/* Architecture image placeholder for BOOM item */
+.architecture-placeholder {
+  border: 1.5px dashed rgba(100,65,45,0.35);
   background: linear-gradient(160deg, #fff, #f7f0e8);
-  padding: 18px;
-  overflow-x: auto;
-}
-.rag-mini-flow {
-  min-width: 1120px;
-  display: grid;
-  grid-template-columns: 1.1fr 42px 1.1fr 42px 1.15fr 42px 1.15fr 42px 1.1fr 42px 1fr;
-  align-items: stretch;
-  gap: 0;
-}
-.rag-node {
-  border-radius: 4px;
-  padding: 14px 12px;
-  border: 1px solid rgba(60,40,30,0.15);
-  box-shadow: 0 6px 16px rgba(46,31,31,0.08);
-}
-.rag-node-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  opacity: 0.8;
-}
-.rag-node-text {
-  font-size: 0.82rem;
-  line-height: 1.45;
-  color: var(--text-mid);
-}
-.rag-node-source { background: #dce7f3; }
-.rag-node-clean { background: #d6ecf3; }
-.rag-node-ip { background: #ead9ea; }
-.rag-node-rag { background: #d8d2ee; }
-.rag-node-analysis { background: #f1ddb9; }
-.rag-node-crm { background: #eed6e2; }
-.rag-node-decision-go { background: #cde8c7; margin-bottom: 10px; }
-.rag-node-decision-no { background: #f1d0cf; }
-.rag-decision-stack {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
-}
-.rag-arrow {
+  border-radius: 6px;
+  min-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'DM Mono', monospace;
-  color: var(--brown-warm);
-  font-size: 1rem;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  padding: 20px;
 }
-.rag-branch {
-  margin-top: 10px;
-  border-top: 1px dashed rgba(100,65,45,0.25);
-  padding-top: 10px;
-  font-size: 0.74rem;
-  line-height: 1.35;
-  color: var(--text-muted);
+.architecture-placeholder-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown-light);
+}
+.architecture-placeholder-note {
+  max-width: 520px;
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.55;
 }
 /* ============================================================
    PAGE 3 — CONTACT & SPEAKING
@@ -1349,7 +1328,10 @@ footer {
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
   .about-sidebar { position: static; display: flex; gap: 40px; }
   .about-sidebar-image { max-width: 100%; }
-  .focus-inner { grid-template-columns: 1fr; gap: 40px; }
+  .combined-section { background: var(--off-white); }
+  .combined-layout { grid-template-columns: 1fr; gap: 0; }
+  .combined-col-left { padding: 80px 0 60px; }
+  .combined-col-right { background: var(--brown-deep); padding: 60px 0 80px; }
   #page-home .build-card { transform: none !important; }
   #page-home .build-card::after,
   #page-home .project-card::after { display: none; }
@@ -1359,6 +1341,8 @@ footer {
   #page-home .experience-item { padding-left: 20px; }
 }
 @media (max-width: 768px) {
+  .combined-col-left { padding: 60px 0 40px; }
+  .combined-col-right { padding: 40px 0 60px; }
   .container, .container-narrow { padding: 0 24px; }
   nav { padding: 0 24px; }
   .nav-links { display: none; }
@@ -1376,15 +1360,6 @@ footer {
   .hero-content { padding: 100px 24px 80px; }
   .build-grid { grid-template-columns: 1fr; }
   #page-home .build-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
-  #page-home .projects-grid { grid-template-columns: 1fr; }
-  #page-home .project-card:nth-child(1),
-  #page-home .project-card:nth-child(2),
-  #page-home .project-card:nth-child(3),
-  #page-home .project-card:nth-child(4) {
-    grid-column: auto;
-    margin: 0;
-  }
   .contact-grid { grid-template-columns: 1fr; }
   .experience-item { grid-template-columns: 1fr; gap: 12px; }
   .speaking-item { grid-template-columns: 1fr; gap: 12px; }
@@ -1398,8 +1373,6 @@ footer {
   #page-home .exp-main { padding-right: 66px; }
   #page-home .exp-expand-btn { width: 46px; height: 46px; font-size: 1.35rem; }
   #page-home .exp-detail-grid { grid-template-columns: 1fr; }
-  #page-home .focus-item::after { display: none; }
-  #page-home .focus-item { padding-right: 18px; }
 }
 </style>
 </head>
@@ -1526,7 +1499,7 @@ footer {
   <section class="experience-section">
     <div class="container">
       <div class="section-label fade-in">Background</div>
-      <h2 class="section-title fade-in">Selected Experience</h2>
+      <h2 class="section-title fade-in">Past Experience</h2>
       <div class="experience-list">
         <div class="experience-item fade-in">
           <div class="exp-meta">
@@ -1535,46 +1508,22 @@ footer {
           </div>
           <div class="exp-main">
             <div class="exp-role">Data Scientist</div>
-            <p class="exp-desc">Develop and maintain production-grade analytics pipelines and Python/SQL ETL workflows that unify structured records with narrative text sources. Built anomaly detection and data validation frameworks for multi-source integrity, applied ML/NLP to transform qualitative inputs into decision-ready metrics, and supported econometric broadband impact modeling used in policy research.</p>
+            <p class="exp-desc">Develop and maintain production-grade analytics pipelines and agentic workflows that unify structured records with narrative text sources. Apply ML/NLP to transform qualitative inputs into decision-ready metrics and support econometric broadband impact modeling used in policy research.</p>
             <button class="exp-expand-btn" type="button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="exp-details-kaptivate" aria-label="Expand detailed background">&#8599;</button>
             <div class="exp-expand-hint">Click for expanded background</div>
           </div>
           <div class="exp-details" id="exp-details-kaptivate">
             <div class="exp-details-inner">
-              <div class="exp-detail-grid">
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Role Scope</div>
-                  <ul class="exp-detail-list">
-                    <li>Design and maintain production data pipelines across federal and operational data sources.</li>
-                    <li>Integrate structured records, document corpora, and narrative inputs for decision-ready analytics.</li>
-                    <li>Support analytics used by both technical and non-technical teams.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">AI &amp; Modeling Work</div>
-                  <ul class="exp-detail-list">
-                    <li>Built NLP and semantic modeling systems to classify qualitative research inputs at scale.</li>
-                    <li>Transformed unstructured text into structured, queryable knowledge for downstream analysis.</li>
-                    <li>Implemented schema-constrained extraction pipelines, anomaly detection, and threshold-based alerts.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Operational Impact</div>
-                  <ul class="exp-detail-list">
-                    <li>Created dashboards and analytical products actively used by 30+ program staff.</li>
-                    <li>Architected retrieval-augmented opportunity intelligence systems.</li>
-                    <li>Reduced contract-opportunity review time by 70% and supported over $4M in successful federal applications.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Core Stack</div>
-                  <ul class="exp-detail-list">
-                    <li>Python, SQL, ETL orchestration, data validation workflows, monitoring frameworks.</li>
-                    <li>LLM workflows, RAG pipelines, text classification, clustering, semantic retrieval methods.</li>
-                    <li>BI dashboards and stakeholder-facing decision support deliverables.</li>
-                  </ul>
-                </div>
+              <div class="exp-resume-meta">
+                <span class="exp-resume-tag">Alexandria, VA</span>
               </div>
+              <ul class="exp-resume-bullets">
+                <li>Design and maintain production data pipelines integrating structured records, documents, and narrative inputs across multiple federal and operational data sources to enable decision-ready analytics.</li>
+                <li>Develop and deploy NLP and semantic modeling systems that classify qualitative research inputs, extract meaning at scale, and transform unstructured text into structured, queryable knowledge.</li>
+                <li>Build data validation, anomaly detection, and monitoring frameworks with schema-constrained extraction pipelines and threshold alerting to ensure integrity across multi-source environments.</li>
+                <li>Create dashboards and analytical deliverables used by 30+ program staff, translating complex operational and policy datasets into clear, actionable insights for technical and non-technical stakeholders.</li>
+                <li>Architect and implement several retrieval-augmented generation systems including a contract opportunity intelligence platform that cut review time 70% and supported $4M+ in successful federal funding applications.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1585,46 +1534,21 @@ footer {
           </div>
           <div class="exp-main">
             <div class="exp-role">Data Science / Machine Learning Intern</div>
-            <p class="exp-desc">Developed supervised and unsupervised machine learning models for client research engagements, engineered ETL pipelines to prepare large datasets for modeling, and implemented evaluation practices to strengthen reproducibility. Produced exploratory analyses, technical documentation, and validation tooling to support reliable model training and decision support outputs.</p>
+            <p class="exp-desc">Developed supervised and unsupervised machine learning models for client research engagements, engineered ETL pipelines to prepare large datasets for modeling, and implemented evaluation practices to strengthen reproducibility.</p>
             <button class="exp-expand-btn" type="button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="exp-details-ds" aria-label="Expand detailed background">&#8599;</button>
             <div class="exp-expand-hint">Click for expanded background</div>
           </div>
           <div class="exp-details" id="exp-details-ds">
             <div class="exp-details-inner">
-              <div class="exp-detail-grid">
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Role Scope</div>
-                  <ul class="exp-detail-list">
-                    <li>Developed supervised and unsupervised machine learning workflows for client-facing research projects.</li>
-                    <li>Contributed to modeling, experimentation, and interpretation across multiple engagement types.</li>
-                    <li>Prioritized reproducible outputs and clearly documented methods.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Data Engineering Work</div>
-                  <ul class="exp-detail-list">
-                    <li>Engineered Python- and SQL-based ETL processes for large dataset preparation.</li>
-                    <li>Organized transformed datasets for modeling, reporting, and downstream analytics.</li>
-                    <li>Improved consistency and quality of input data available to modelers and analysts.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">NLP &amp; Validation</div>
-                  <ul class="exp-detail-list">
-                    <li>Applied NLP and automated text analysis to extract insights from unstructured inputs.</li>
-                    <li>Evaluated model behavior and validated datasets before delivery.</li>
-                    <li>Produced technical documentation that improved stakeholder clarity and analytical transparency.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Professional Growth</div>
-                  <ul class="exp-detail-list">
-                    <li>Strengthened practical model evaluation and quality assurance habits.</li>
-                    <li>Learned to translate technical analysis into clear stakeholder-ready narratives.</li>
-                    <li>Built the foundation for later production-focused AI and decision system work.</li>
-                  </ul>
-                </div>
+              <div class="exp-resume-meta">
+                <span class="exp-resume-tag">Washington, DC</span>
               </div>
+              <ul class="exp-resume-bullets">
+                <li>Developed supervised and unsupervised machine learning workflows for client-facing research projects, improving predictive performance and supporting reproducible, well-documented analytical outputs.</li>
+                <li>Engineered Python- and SQL-based ETL processes to clean, transform, and organize large datasets for modeling, reporting, experimentation, and downstream analytics applications.</li>
+                <li>Applied natural language processing and automated text analysis techniques to extract insights from unstructured data, improving research efficiency and analytical consistency.</li>
+                <li>Evaluated model behavior, validated datasets, and produced technical documentation that improved transparency, usability, and communication of analytical results across stakeholders.</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1635,128 +1559,118 @@ footer {
           </div>
           <div class="exp-main">
             <div class="exp-role">Membership Lifecycle Management Intern</div>
-            <p class="exp-desc">Built predictive models to analyze membership behavior and improve retention-oriented campaign strategy. Automated recurring data pipelines, integrated structured and unstructured CRM data for fuller lifecycle visibility, and delivered interactive dashboards that enabled data-informed planning across business teams.</p>
+            <p class="exp-desc">Built predictive models to analyze membership behavior and improve retention-oriented campaign strategy. Automated recurring data pipelines and integrated structured and unstructured CRM data for fuller lifecycle visibility.</p>
             <button class="exp-expand-btn" type="button" onclick="toggleExperience(this)" aria-expanded="false" aria-controls="exp-details-aarp" aria-label="Expand detailed background">&#8599;</button>
             <div class="exp-expand-hint">Click for expanded background</div>
           </div>
           <div class="exp-details" id="exp-details-aarp">
             <div class="exp-details-inner">
-              <div class="exp-detail-grid">
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Role Scope</div>
-                  <ul class="exp-detail-list">
-                    <li>Built predictive and descriptive models to understand membership behavior patterns.</li>
-                    <li>Supported retention strategy and campaign targeting with data-backed recommendations.</li>
-                    <li>Provided analytics outputs used by multiple business teams.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Data &amp; Automation</div>
-                  <ul class="exp-detail-list">
-                    <li>Automated recurring data preparation and reporting workflows to reduce manual effort.</li>
-                    <li>Improved consistency, timeliness, and accessibility of operational insights.</li>
-                    <li>Created repeatable data products that teams could rely on for planning cycles.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Integrated Analytics</div>
-                  <ul class="exp-detail-list">
-                    <li>Unified CRM, behavioral, and reporting data into shared lifecycle analysis views.</li>
-                    <li>Increased visibility into segmentation opportunities and performance drivers.</li>
-                    <li>Delivered dashboard and presentation-ready analysis for cross-functional stakeholders.</li>
-                  </ul>
-                </div>
-                <div class="exp-detail-group">
-                  <div class="exp-detail-title">Business Impact</div>
-                  <ul class="exp-detail-list">
-                    <li>Enabled more targeted retention planning and campaign optimization.</li>
-                    <li>Made complex membership metrics easier to act on for non-technical teams.</li>
-                    <li>Improved confidence in data-informed decision-making across business units.</li>
-                  </ul>
-                </div>
+              <div class="exp-resume-meta">
+                <span class="exp-resume-tag">Washington, DC</span>
               </div>
+              <ul class="exp-resume-bullets">
+                <li>Built predictive and descriptive models analyzing member behavior, supporting retention strategy, campaign optimization, and more targeted decision-making across business units.</li>
+                <li>Automated recurring data preparation and reporting workflows, reducing manual effort while improving consistency, timeliness, and accessibility of operational insights for stakeholders.</li>
+                <li>Integrated CRM, behavioral, and reporting data into unified analytical views that improved visibility into lifecycle trends, segmentation opportunities, and performance drivers.</li>
+                <li>Developed dashboards and presentation-ready analyses that translated complex membership data into clear recommendations for planning, strategy, and cross-functional collaboration.</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- KEY PROJECTS -->
-  <section class="projects-section">
+  <!-- KEY PROJECTS + ACTIVE FOCUS -->
+  <section class="combined-section">
     <div class="container">
-      <div class="section-label fade-in">Work</div>
-      <h2 class="section-title fade-in">Key Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card featured fade-in">
-          <span class="project-star">Key Project</span>
-          <div class="project-title">BOOM System (Business Optimization & Opportunity Management)</div>
-          <p class="project-desc">A business optimization and opportunity management system that blends computer vision document understanding, LLM extraction, and opportunity ranking to turn dense funding materials into decision-ready intelligence.</p>
-          <div class="project-tags">
-            <span class="tag">Computer Vision</span>
-            <span class="tag">LLM</span>
-            <span class="tag">Decision System</span>
-            <span class="tag">BOOM</span>
+      <div class="combined-layout">
+        <!-- Left: Projects -->
+        <div class="combined-col-left">
+          <h2 class="pf-col-title fade-in">Key Projects</h2>
+          <div class="projects-stack">
+            <div class="project-card featured fade-in">
+              <span class="project-star">Featured Project</span>
+              <div class="project-title">BOOM (Business Optimization & Opportunity Management) System</div>
+              <p class="project-desc">An agentic opportunity intelligence system that continuously monitors, evaluates, and routes contract and grant opportunities through a stateful, human-governed pursuit workflow.</p>
+              <div class="project-tags">
+                <span class="tag">Agentic Workflow</span>
+                <span class="tag">LLM</span>
+                <span class="tag">Decision System</span>
+              </div>
+              <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
+            </div>
+            <div class="project-card fade-in" style="transition-delay:0.1s">
+              <div class="project-title">Decision Intelligence RAG</div>
+              <p class="project-desc">A production-grade, multi-source RAG system with corpus, document-only, and hybrid modes that delivers citation-ready, context-grounded intelligence for policy and program decisions.</p>
+              <div class="project-tags">
+                <span class="tag">RAG</span>
+                <span class="tag">Multi-Source</span>
+                <span class="tag">Managed LLM</span>
+              </div>
+              <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
+            </div>
+            <div class="project-card fade-in" style="transition-delay:0.2s">
+              <div class="project-title">Predictive Forecasting & Strategic Design System</div>
+              <p class="project-desc">A machine learning decision system that forecasts demand and outcome quality, then operationalizes targeted intervention strategies to improve participation and resource alignment.</p>
+              <div class="project-tags">
+                <span class="tag">ML</span>
+                <span class="tag">Forecasting</span>
+                <span class="tag">Decision Systems</span>
+              </div>
+              <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
+            </div>
+            <div class="project-card fade-in" style="transition-delay:0.3s">
+              <div class="project-title">Published Research on Economic Impact of Federal Broadband Funding</div>
+              <p class="project-desc">Published mixed-methods research combining regional econometric analysis and qualitative evidence synthesis to evaluate federal broadband funding impacts and policy implications.</p>
+              <div class="project-tags">
+                <span class="tag">Econometrics</span>
+                <span class="tag">Mixed Methods</span>
+                <span class="tag">Policy Research</span>
+              </div>
+              <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
+            </div>
           </div>
-          <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
         </div>
-        <div class="project-card fade-in" style="transition-delay:0.1s">
-          <div class="project-title">Opportunity Intelligence & RAG System</div>
-          <p class="project-desc">A retrieval-augmented generation system that aggregates federal funding opportunities, scores them against organizational criteria, and surfaces ranked, contextualized recommendations for decision-makers.</p>
-          <div class="project-tags">
-            <span class="tag">RAG</span>
-            <span class="tag">LLM</span>
-            <span class="tag">Ranking</span>
-            <span class="tag">AI</span>
-          </div>
-          <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
-        </div>
-        <div class="project-card fade-in" style="transition-delay:0.2s">
-          <div class="project-title">Qualitative Research Database (NLP)</div>
-          <p class="project-desc">A relational system combining NLP classification with structured data storage to organize and surface insights from thousands of qualitative research inputs.</p>
-          <div class="project-tags">
-            <span class="tag">NLP</span>
-            <span class="tag">Classification</span>
-            <span class="tag">Database</span>
-          </div>
-          <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
-        </div>
-        <div class="project-card fade-in" style="transition-delay:0.3s">
-          <div class="project-title">Economic Impact & Policy Analysis</div>
-          <p class="project-desc">Quantitative economic modeling of broadband infrastructure investment, CMC funding, and BEAD program design — connecting data methods with policy-relevant conclusions.</p>
-          <div class="project-tags">
-            <span class="tag">Econometrics</span>
-            <span class="tag">Policy</span>
-            <span class="tag">Modeling</span>
-          </div>
-          <button class="project-link" onclick="showPage('projects')">View Full Project Details →</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- CURRENT FOCUS -->
-  <section class="focus-section">
-    <div class="container">
-      <div class="focus-inner">
-        <div>
-          <div class="section-label" style="color:var(--taupe)">Currently</div>
-          <h2 class="focus-title">Areas of active focus & exploration</h2>
-        </div>
-        <div class="focus-items">
-          <div class="focus-item">
-            <div class="focus-dot"></div>
-            <div class="focus-text">AI-driven decision systems for civic and government contexts</div>
-          </div>
-          <div class="focus-item">
-            <div class="focus-dot"></div>
-            <div class="focus-text">Opportunity intelligence pipelines with multi-source data fusion</div>
-          </div>
-          <div class="focus-item">
-            <div class="focus-dot"></div>
-            <div class="focus-text">Applied economic analysis of federal broadband & infrastructure policy</div>
-          </div>
-          <div class="focus-item">
-            <div class="focus-dot"></div>
-            <div class="focus-text">Retrieval-augmented systems for document-heavy research workflows</div>
+        <!-- Right: Active Focus -->
+        <div class="combined-col-right">
+          <h2 class="pf-col-title fade-in">Areas of Active Focus</h2>
+          <div class="focus-items-col">
+            <div class="focus-item fade-in">
+              <div class="focus-text">AI-driven decision systems for civic and government contexts</div>
+              <p class="focus-blurb">Designing agentic pipelines and structured reasoning workflows that support human-governed decisions in policy and program environments.</p>
+              <div class="focus-item-tags">
+                <span class="focus-tag">Agentic AI</span>
+                <span class="focus-tag">Civic Tech</span>
+                <span class="focus-tag">Decision Design</span>
+              </div>
+            </div>
+            <div class="focus-item fade-in" style="transition-delay:0.1s">
+              <div class="focus-text">Scalable semantic modeling across multi-source policy and opportunity data</div>
+              <p class="focus-blurb">Building NLP and embedding-based systems that extract, align, and surface meaning from heterogeneous document corpora and operational data.</p>
+              <div class="focus-item-tags">
+                <span class="focus-tag">NLP</span>
+                <span class="focus-tag">Semantic Search</span>
+                <span class="focus-tag">Embeddings</span>
+              </div>
+            </div>
+            <div class="focus-item fade-in" style="transition-delay:0.2s">
+              <div class="focus-text">Applied economic analysis of federal broadband & infrastructure policy</div>
+              <p class="focus-blurb">Using econometric modeling and mixed-methods research to evaluate federal investment outcomes and inform infrastructure policy recommendations.</p>
+              <div class="focus-item-tags">
+                <span class="focus-tag">Econometrics</span>
+                <span class="focus-tag">Policy Research</span>
+                <span class="focus-tag">Mixed Methods</span>
+              </div>
+            </div>
+            <div class="focus-item fade-in" style="transition-delay:0.3s">
+              <div class="focus-text">Advanced data visualization for document-heavy research and decision workflows</div>
+              <p class="focus-blurb">Translating complex, multi-layered datasets and document-driven findings into clear, interactive deliverables for analytical and executive audiences.</p>
+              <div class="focus-item-tags">
+                <span class="focus-tag">Data Viz</span>
+                <span class="focus-tag">Dashboards</span>
+                <span class="focus-tag">Stakeholder Comms</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1766,7 +1680,7 @@ footer {
     <div class="container">
       <div class="footer-inner">
         <div class="footer-logo">Victor Vassallo</div>
-        <div class="footer-copy">© 2025 · Data Scientist & AI Systems Builder</div>
+        <div class="footer-copy">© 2026 · Data Scientist & AI Systems Builder</div>
       </div>
     </div>
   </footer>
@@ -1805,94 +1719,44 @@ footer {
         <div class="accordion-item" data-category="decision">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
-              <div class="accordion-title">Opportunity Intelligence & RAG Decision System</div>
-              <div class="accordion-summary">A retrieval-augmented generation system that scores and surfaces ranked federal funding opportunities against organizational criteria.</div>
+              <div class="accordion-title">BOOM (Business Optimization & Opportunity Management) System</div>
+              <div class="accordion-summary">An agentic opportunity intelligence system that monitors, evaluates, and routes contract and grant opportunities through a human-governed workflow.</div>
             </div>
             <div class="accordion-right">
-              <span class="tag">RAG</span>
+              <span class="tag">BOOM</span>
               <span class="tag">LLM</span>
+              <span class="tag">GCP</span>
               <span class="tag">AI</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">An end-to-end AI-powered platform that aggregates federal funding opportunities from multiple sources, processes them through an LLM-based evaluation layer, and presents ranked, contextualized recommendations to decision-makers.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">Organizations pursuing federal grants face a fragmented, high-volume landscape of opportunities. Without systematic intelligence, relevant opportunities are missed and resources are misallocated to poor-fit applications.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach & Architecture</div>
-                <p class="detail-text">Built a multi-stage pipeline: (1) automated ingestion from Grants.gov and agency APIs, (2) document parsing and semantic chunking, (3) vector embedding and retrieval layer, (4) LLM scoring against organizational profile criteria, (5) ranked output interface with reasoning traces.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">RAG architecture with FAISS vector store, OpenAI embeddings, structured LLM prompting for multi-criteria evaluation, Python pipeline with Airflow orchestration, React frontend for opportunity review.</p>
-              </div>
-              <div class="detail-block full">
-                <div class="detail-label">Custom Scoring (Powered by Company IP)</div>
-                <p class="detail-text">The ranking layer is driven by proprietary company IP: a weighted scoring framework and rule set built from internal win/loss history, sector priorities, capability maturity signals, and client-specific constraints. This private rubric compounds over time as team judgments and outcomes feed back into the system, turning preexisting IP into a scalable BD advantage for future opportunity cycles.</p>
-              </div>
-              <div class="detail-block full">
-                <div class="detail-label">Simplified Architecture Flow</div>
-                <div class="rag-mini-diagram">
-                  <div class="rag-mini-flow">
-                    <div class="rag-node rag-node-source">
-                      <div class="rag-node-title">Inputs</div>
-                      <div class="rag-node-text">Procurement boards plus Grants.gov and agency feeds are scraped and normalized on schedule.</div>
-                    </div>
-                    <div class="rag-arrow">-&gt;</div>
-                    <div class="rag-node rag-node-clean">
-                      <div class="rag-node-title">Data Prep</div>
-                      <div class="rag-node-text">Opportunities are cleaned, deduplicated, and enriched with capability and team context.</div>
-                    </div>
-                    <div class="rag-arrow">-&gt;</div>
-                    <div class="rag-node rag-node-ip">
-                      <div class="rag-node-title">IP-Powered Scoring</div>
-                      <div class="rag-node-text">Company IP applies weighted fit scoring and owner assignment based on strategic priorities.</div>
-                    </div>
-                    <div class="rag-arrow">-&gt;</div>
-                    <div class="rag-node rag-node-analysis">
-                      <div class="rag-node-title">RAG Deep Analysis</div>
-                      <div class="rag-node-text">RAG produces opportunity summaries, rationale, and document-grounded insights for review.</div>
-                      <div class="rag-branch">
-                        Lead custom questions &lt;-&gt; deeper analysis (feedback captured to improve future scoring).
-                      </div>
-                    </div>
-                    <div class="rag-arrow">-&gt;</div>
-                    <div class="rag-node rag-node-crm">
-                      <div class="rag-node-title">Distribution</div>
-                      <div class="rag-node-text">Ranked summaries are sent by email and written to CRM for team action.</div>
-                    </div>
-                    <div class="rag-arrow">-&gt;</div>
-                    <div class="rag-decision-stack">
-                      <div class="rag-node rag-node-decision-go">
-                        <div class="rag-node-title">Go / No-Go</div>
-                        <div class="rag-node-text">Go: move to deal tracker and initiate document upload.</div>
-                      </div>
-                      <div class="rag-node rag-node-decision-no">
-                        <div class="rag-node-title">Alternative Path</div>
-                        <div class="rag-node-text">No-Go: mark pass or request additional analysis.</div>
-                      </div>
-                    </div>
-                  </div>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">BOOM is an end-to-end agentic platform that ingests contract and grant opportunities, evaluates them against organizational priorities, and executes downstream actions such as prioritization, routing, summarization, and analyst escalation. The system combines automated decision support with human oversight, enabling faster and more consistent pursuit workflows.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Problem</div>
+                  <p class="detail-text">Business development teams face fragmented, high-volume opportunity streams with inconsistent structure and changing requirements. Traditional tools surface opportunities but do not actively move them through the pursuit process, resulting in missed high-fit opportunities and inefficient use of analyst time.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Agentic Approach & Architecture</div>
+                  <p class="detail-text">BOOM operates as a stateful orchestration layer that:<br>(1) continuously ingests and monitors opportunity sources,<br>(2) normalizes and semantically structures incoming data,<br>(3) retrieves relevant internal context from capabilities, offerings, and prior work,<br>(4) evaluates opportunity fit using proprietary scoring logic, and<br>(5) conditionally triggers downstream actions such as routing to teams, generating summaries, initiating document analysis, and preparing decision support outputs.<br><br>Opportunities progress through defined lifecycle states, with human review incorporated at key decision points.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Methods</div>
+                  <p class="detail-text">The system integrates Python services, schema-constrained LLM prompting, custom embeddings, vector search, and GCP-based orchestration into a unified execution layer. Within defined bounds, BOOM selects appropriate processing steps, maintains opportunity state, and generates structured rationale for its outputs.</p>
+                </div>
+                <div class="decision-impact">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Reduced opportunity review time by ~70% and enabled a small team to process 200+ opportunities monthly. By automating triage, prioritization, and initial analysis, BOOM allows teams to focus on high-value pursuit decisions.</p>
                 </div>
               </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Reduced opportunity review time by ~70%. Enabled a small team to systematically evaluate 200+ opportunities monthly, surfacing 12–15 high-fit grants per cycle that would have otherwise been overlooked. Direct influence on $4M+ in successful funding applications.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Active and in production use. Undergoing expansion to incorporate eligibility pre-screening and collaborative scoring workflows.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Prompt structure for multi-criteria scoring requires iterative calibration. Retrieval quality is the primary bottleneck — chunking strategy matters more than model choice for domain-specific documents.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Architecture Diagram</div>
+                <img src="boom-architecture-agentic-v2.svg" alt="BOOM Architecture Diagram" style="width:100%; height:auto; display:block; border-radius:4px;">
               </div>
             </div>
           </div>
@@ -1908,45 +1772,51 @@ footer {
         <div class="accordion-item" data-category="document">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
-              <div class="accordion-title">Document Intelligence Pipeline (OCR + LLM)</div>
-              <div class="accordion-summary">Automated pipeline that transforms dense federal documents and policy briefs into structured, queryable data using OCR and LLM extraction.</div>
+              <div class="accordion-title">Decision Intelligence RAG</div>
+              <div class="accordion-summary">A production-grade, multi-source RAG pipeline with three operating modes: RAG corpus, document-only, and hybrid retrieval for decision-ready answers.</div>
             </div>
             <div class="accordion-right">
-              <span class="tag">OCR</span>
-              <span class="tag">LLM</span>
-              <span class="tag">NLP</span>
+              <span class="tag">RAG</span>
+              <span class="tag">Multi-Source</span>
+              <span class="tag">Managed LLM</span>
+              <span class="tag">GCP</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">A modular document processing system that ingests PDFs (including scanned documents), applies OCR, and uses structured LLM prompting to extract key fields, dates, requirements, and narrative summaries into a relational database.</p>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">A production-grade decision intelligence RAG system engineered for high-reliability retrieval, grounded generation, and operational scalability. It supports corpus retrieval, document-scoped retrieval, and hybrid retrieval across persistent and session-level sources.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Input Layer</div>
+                  <p class="detail-text">The interaction layer supports query, document ingestion, and streamed response channels, with runtime mode selection across retrieval strategies. Intent routing classifies query context and dynamically selects corpus, document, or hybrid retrieval behavior.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Data Sources</div>
+                  <p class="detail-text">The architecture combines a persistent enterprise knowledge corpus (chunk store, parent-section mappings, vector indexes, and metadata manifests) with ephemeral session uploads that are extracted, segmented, embedded, and indexed in-memory for low-latency retrieval.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Core Engine & Retrieval</div>
+                  <p class="detail-text">The retrieval engine materializes multi-index stores into memory, builds chunk/parent/neighbor lookup graphs, infers document classes, and maintains metadata-aware catalogs for entity-specific retrieval. Query flow: embedding -&gt; multi-source candidate search -&gt; intent- and metadata-aware reranking -&gt; MMR diversification -&gt; post-processing for file balance, coverage guarantees, and redundancy control.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Generation & Operations</div>
+                  <p class="detail-text">The generation layer uses a managed LLM service with citation-grounded prompt policies, streaming output, retry/backoff resiliency, and concurrency controls. Context assembly expands parent and neighbor windows, annotates references, and trims to token budgets. Observability includes response caching, structured telemetry, timing/error traces, and source-level audit logging.</p>
+                </div>
+                <div class="decision-impact">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Improved answer quality, traceability, and operational reliability by combining metadata-aware retrieval, citation-ready context construction, and production controls. Teams can make faster decisions with stronger evidence coverage across both persistent knowledge and session uploads.</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">Federal documents, FOANs, and policy briefs are dense, inconsistently formatted, and typically locked in PDF form. Analysts spend hours manually extracting basic information before any real analysis can begin.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach & Architecture</div>
-                <p class="detail-text">Pipeline stages: document ingestion → format detection → OCR (Tesseract/AWS Textract) → text cleaning → LLM extraction with schema-defined output → structured storage → API access layer for downstream systems.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">AWS Textract for scanned documents, custom post-processing for layout reconstruction, JSON schema-constrained LLM extraction, PostgreSQL storage with full-text search, FastAPI layer for integration.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Reduced manual document processing from 3–4 hours per document to under 10 minutes. Enabled analysts to work from structured data rather than raw PDFs, improving consistency and allowing comparative analysis across document sets.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Production deployment processing 50–80 documents per week. Integrated as upstream feed for the Opportunity Intelligence system.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Schema-constrained outputs are essential for reliability. OCR quality varies dramatically with scan quality — pre-processing steps (deskew, denoise) have outsized impact on downstream extraction accuracy.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Flow Chart / Visual</div>
+                <div class="architecture-placeholder">
+                  <div class="architecture-placeholder-title">Diagram Placeholder</div>
+                  <div class="architecture-placeholder-note">Insert system flow SVG/PNG here (Input Layer -&gt; Retrieval Engine -&gt; Context Builder -&gt; Generation Layer -&gt; Output &amp; Observability)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -1954,45 +1824,47 @@ footer {
         <div class="accordion-item" data-category="document" style="margin-top:2px;">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
-              <div class="accordion-title">Qualitative Research Database (NLP + Relational System)</div>
-              <div class="accordion-summary">A system combining NLP classification with structured storage to organize and surface insights from thousands of qualitative research inputs.</div>
+              <div class="accordion-title">Qualitative Research Database</div>
+              <div class="accordion-summary">A context-aware qualitative intelligence system that structures diverse evidence into a semantic layer for policy and program research.</div>
             </div>
             <div class="accordion-right">
-              <span class="tag">NLP</span>
-              <span class="tag">Classification</span>
-              <span class="tag">Database</span>
+              <span class="tag">Embeddings</span>
+              <span class="tag">Semantic Index</span>
+              <span class="tag">Metadata</span>
+              <span class="tag">Knowledge Base</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">A structured database system backed by NLP pipelines that ingests qualitative research data (interview notes, survey responses, stakeholder comments) and classifies, tags, and stores them for systematic analysis and retrieval.</p>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">A production qualitative research database that transforms unstructured evidence into a context-aware semantic knowledge layer for analysis, synthesis, and decision support.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Problem</div>
+                  <p class="detail-text">Critical research evidence arrived in fragmented formats and channels, including federally mandated reports, interviews, survey instruments, and scraped media references. Manual cross-source synthesis was slow, inconsistent, and difficult to operationalize at scale.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Approach &amp; Architecture</div>
+                  <p class="detail-text">Built a unified ingestion and normalization architecture that maps heterogeneous qualitative sources into a flexible schema, preserves provenance metadata, and supports both structured filtering and semantic retrieval through shared context objects.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Methods</div>
+                  <p class="detail-text">Implemented embedding generation, vector indexing, metadata-aware retrieval keys, and context-window assembly to create a robust semantic layer. Combined schema-flexible storage with source-level indexing, entity tagging, and citation-traceable links for reliable qualitative search and synthesis.</p>
+                </div>
+                <div class="decision-impact">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Provided core research capacity for multiple annual congressional reports, supported budget proposal development, and enabled a broadband policy research paper that paired econometric modeling with the qualitative analysis capabilities of the database.</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">Qualitative research data is inherently unstructured and resists systematic analysis. Research teams were manually coding thousands of inputs — a slow, inconsistent, and non-scalable process.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach & Architecture</div>
-                <p class="detail-text">Designed a codebook-informed classification schema, trained a multi-label text classifier on annotated training data, built ingestion pipeline, and created a relational schema linking themes, sources, and metadata for flexible querying.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">Fine-tuned BERT-based classifier for thematic coding, spaCy for entity extraction, PostgreSQL with JSONB for flexible schema, Metabase for analyst-facing dashboards and query interfaces.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Transformed qualitative data from anecdote to evidence. Research team could query across 3,000+ inputs by theme, geography, and stakeholder type — enabling pattern identification that shaped policy recommendations and program design decisions.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Used in production for two major research cycles. Framework generalized and applied to NTIA listening session analysis.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Codebook design is the most important upfront investment. Ambiguous categories create downstream classification noise that's hard to correct at scale.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Flow Chart / Visual</div>
+                <div class="architecture-placeholder">
+                  <div class="architecture-placeholder-title">Diagram Placeholder</div>
+                  <div class="architecture-placeholder-note">Insert qualitative database flow SVG/PNG here (Source Ingestion -&gt; Metadata Mapping -&gt; Embedding/Indexing -&gt; Semantic Retrieval -&gt; Research Outputs)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2002,51 +1874,53 @@ footer {
       <div class="project-category" data-category="analytics">
         <div class="category-header">
           <span class="category-num">03</span>
-          <span class="category-name">Analytics & Operations</span>
+          <span class="category-name">Business Analytics & Operations</span>
           <div class="category-line"></div>
         </div>
         <div class="accordion-item" data-category="analytics">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
               <div class="accordion-title">Operational Analytics & Resource Allocation Dashboard</div>
-              <div class="accordion-summary">A real-time dashboard system enabling program managers to monitor operational metrics and optimize resource allocation decisions across regions.</div>
+              <div class="accordion-summary">An operational intelligence system using machine learning and predictive analytics to optimize workflows, project resources, and coordination across teams.</div>
             </div>
             <div class="accordion-right">
-              <span class="tag">Analytics</span>
+              <span class="tag">ML Analytics</span>
+              <span class="tag">Predictive Ops</span>
               <span class="tag">Dashboard</span>
-              <span class="tag">Viz</span>
+              <span class="tag">Risk Monitoring</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">A data pipeline and interactive dashboard suite providing program managers with real-time operational insights, performance tracking, and resource utilization analytics across a multi-site program.</p>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">An operational intelligence platform combining machine learning, predictive workflow analytics, and resource-allocation visibility to improve delivery performance in multi-project environments.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Problem</div>
+                  <p class="detail-text">Program leadership lacked timely integrated signals for workflow health and resource pressure. This increased exposure to burnout risk, workstream fragmentation, and poor coordination across interdependent project teams.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Approach &amp; Architecture</div>
+                  <p class="detail-text">Built a unified operations model across multiple systems, mapped dependencies between workflow stages and staffing patterns, and delivered role-specific views with forward-looking indicators for capacity planning and allocation decisions.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Methods</div>
+                  <p class="detail-text">Applied predictive modeling for workload and resource demand, anomaly detection for coordination drift, and risk scoring for burnout, fragmentation, and handoff bottlenecks. Combined forecasting outputs with rule-based operational alerts and planning dashboards.</p>
+                </div>
+                <div class="decision-impact">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Teams consistently completed workstreams in fewer hours than prior projections, while improved division of labor reduced duplicate effort and clarified ownership. Operational response cycles accelerated as risks were identified earlier and addressed before escalation.</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">Program leadership was operating with lagging, siloed data — making resource allocation decisions based on weekly reports rather than current operational reality. Bottlenecks went undetected until they became crises.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach & Architecture</div>
-                <p class="detail-text">Built ETL pipeline aggregating data from 5 operational systems, designed a dimensional data model, created role-differentiated dashboard views (executive summary, operational detail, regional comparison), and built alerting for threshold breaches.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">Python ETL with dbt for transformation, PostgreSQL data warehouse, Tableau for dashboards, custom alert logic for anomaly detection, role-based access controls.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Program managers shifted from reactive to proactive resource management. Average response time to operational bottlenecks decreased from 5 days to under 24 hours. Informed reallocation of $1.2M in program resources across sites.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Deployed and in active use by 30+ program staff. Expanded to include predictive utilization forecasting.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Dashboard adoption depends more on UX and stakeholder involvement in design than on analytical sophistication. Build with end-users, not for them.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Flow Chart / Visual</div>
+                <div class="architecture-placeholder">
+                  <div class="architecture-placeholder-title">Diagram Placeholder</div>
+                  <div class="architecture-placeholder-note">Insert operations analytics flow SVG/PNG here (Data Ingestion -&gt; Workflow Modeling -&gt; Predictive Forecasting -&gt; Risk Detection -&gt; Resource Allocation)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2054,45 +1928,55 @@ footer {
         <div class="accordion-item" data-category="analytics" style="margin-top:2px;">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
-              <div class="accordion-title">Challenge Submission Prediction Model</div>
-              <div class="accordion-summary">A predictive model forecasting submission volume and quality for competitive challenge programs, enabling proactive outreach and resource planning.</div>
+              <div class="accordion-title">Predictive Forecasting &amp; Strategic Design System</div>
+              <div class="accordion-summary">A machine learning and strategy-design system for forecasting demand and outcome quality, then proactively shaping federal program results through targeted interventions.</div>
             </div>
             <div class="accordion-right">
               <span class="tag">ML</span>
-              <span class="tag">Prediction</span>
-              <span class="tag">Modeling</span>
+              <span class="tag">Forecasting</span>
+              <span class="tag">Decision Systems</span>
+              <span class="tag">Strategy Design</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">A machine learning model trained on historical challenge program data to forecast submission likelihood, volume estimates, and predicted quality tier — enabling program teams to target outreach and scale evaluation resources appropriately.</p>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">Designed and implemented a predictive system that forecasts participation dynamics and outcome quality, then translates those forecasts into targeted intervention strategies. In federal participation-driven programs, this enables teams to anticipate variability, optimize resource allocation, and influence outcomes instead of reacting after trends emerge.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Problem</div>
+                  <p class="detail-text">Organizations operating in uncertain, participation-driven federal environments lacked visibility into future demand and outcome distribution. This produced resource mismatches (overload vs. underutilization), ineffective or poorly timed outreach, and limited ability to correct course once trends appeared. Even where forecasts existed, there was no structured system for operational action.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Approach</div>
+                  <p class="detail-text">Built a two-layer system. Predictive Layer: modeled expected volume and quality from historical program data, behavioral signals, and structural characteristics. Intervention Strategy Layer (designed and implemented): converted model outputs into action by identifying risk drivers, segmenting scenarios (low participation risk, low quality risk, imbalance), designing targeted interventions, and defining decision rules for deployment based on confidence and threshold logic. This created a closed loop: prediction -&gt; diagnosis -&gt; action.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Methods</div>
+                  <p class="detail-text">Gradient boosted trees (XGBoost) for predictive modeling; probability calibration (Platt scaling) for reliable decision thresholds; conformal prediction for uncertainty ranges; SHAP for feature attribution and strategy design inputs; scikit-learn pipelines for reproducibility and deployment.</p>
+                </div>
+                <div class="decision-impact">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Forecast accuracy reached approximately 15% of actual outcomes. Enabled proactive resource allocation aligned to predicted demand, implemented targeted intervention strategies that improved participation distribution and outcome quality, and reduced intuition-only decision making by embedding data-driven rules into federal program operations.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Key Contribution</div>
+                  <p class="detail-text">Designed not just a forecasting model, but an actionable decision system that bridges prediction and execution by operationalizing insights into repeatable intervention strategies.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Key Insight</div>
+                  <p class="detail-text">Forecasting creates value only when predictions are systematically linked to interventions that can change outcomes in real time.</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">Challenge programs consistently faced unpredictable submission volumes — either overwhelming review capacity or missing participation targets. Planning was based on intuition rather than data.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach</div>
-                <p class="detail-text">Engineered features from historical program data, registration signals, outreach metrics, and program design characteristics. Built ensemble model with calibrated probability outputs and confidence intervals for planning use.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">Gradient boosted trees (XGBoost), SHAP for interpretability, scikit-learn pipelines, calibration with Platt scaling, prediction intervals via conformal prediction.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Submission volume predictions within 15% of actuals. Enabled program team to scale reviewer capacity proactively and target outreach to underrepresented segments, improving both operational efficiency and program equity outcomes.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Used for two challenge program cycles. SHAP-based explanations adopted by program team as a communication tool for leadership reporting.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Interpretability is not optional for operational models. Stakeholders need to understand why a forecast says what it says — black-box predictions erode trust and limit adoption.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Flow Chart / Visual</div>
+                <div class="architecture-placeholder">
+                  <div class="architecture-placeholder-title">Diagram Placeholder</div>
+                  <div class="architecture-placeholder-note">Insert forecasting system flow SVG/PNG here (Data Inputs -&gt; Predictive Layer -&gt; Risk Segmentation -&gt; Intervention Strategy -&gt; Operational Action)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2108,45 +1992,47 @@ footer {
         <div class="accordion-item" data-category="economic">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
-              <div class="accordion-title">Economic Impact of Broadband & CMC Funding</div>
-              <div class="accordion-summary">Quantitative analysis measuring the economic returns to broadband infrastructure investment and community-based funding programs in underserved markets.</div>
+              <div class="accordion-title">Published Research on Economic Impact of Federal Broadband Funding</div>
+              <div class="accordion-summary">Published mixed-methods research quantifying the economic effects of federal broadband investment and integrating qualitative evidence for policy interpretation and implementation guidance.</div>
             </div>
             <div class="accordion-right">
               <span class="tag">Econometrics</span>
-              <span class="tag">Policy</span>
-              <span class="tag">Impact</span>
+              <span class="tag">Mixed Methods</span>
+              <span class="tag">Policy Research</span>
+              <span class="tag">Published</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">A comprehensive economic impact study measuring the short- and long-run returns to federal broadband and community media center investments, using difference-in-differences and instrumental variable methods to establish causal estimates.</p>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">A published research project analyzing the economic impact of federal broadband funding through a custom mixed-methods framework that pairs regional econometric analysis with large-scale qualitative evidence synthesis.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Problem</div>
+                  <p class="detail-text">Policy stakeholders needed causal, region-specific estimates of economic effects, but quantitative findings alone were insufficient for implementation interpretation. Existing analyses lacked a unified structure linking economic outcomes to on-the-ground qualitative evidence from communities and program actors.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Approach &amp; Methods</div>
+                  <p class="detail-text">Designed a custom mixed-methods approach: regional econometric modeling measured outcome effects across employment, income, and local business indicators, while a comprehensive qualitative database provided context-aware evidence for mechanism interpretation, implementation constraints, and policy sensitivity analysis.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Findings were used to inform federal broadband policy conversations and implementation strategy discussions, with quantitative and qualitative synthesis improving confidence in where and why impacts were strongest.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Outcome / Dissemination</div>
+                  <p class="detail-text">Published as a formal research paper and presented across multiple speaking engagements, including policy-focused presentations, research briefings, and practitioner sessions that translated technical findings into applied decision guidance.</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">Federal broadband and CMC programs lacked rigorous, causal evidence of economic return. Policy debates were driven by advocacy rather than evidence, undermining funding allocation decisions.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach & Methods</div>
-                <p class="detail-text">Assembled longitudinal dataset from FCC, Census, BLS, and program-specific records. Applied difference-in-differences with event study design to estimate treatment effects on employment, income, and business formation. Used distance-to-infrastructure as instrumental variable.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Findings</div>
-                <p class="detail-text">Broadband expansion associated with 4–7% employment growth in treated census tracts over 5-year windows. CMC funding showed concentrated impacts on youth employment and small business formation within 3-mile radii of funded centers.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Analysis cited in federal program reauthorization discussions. Findings contributed to revised funding allocation formulas that redirected approximately $80M toward higher-impact geographic targets.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Published as program evaluation report. Methods framework adapted for ongoing BEAD program monitoring design.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Causal identification requires patient data assembly. The quality of the counterfactual is what determines whether policy audiences trust the analysis.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Paper Visual / Figure</div>
+                <div class="architecture-placeholder">
+                  <div class="architecture-placeholder-title">Diagram Placeholder</div>
+                  <div class="architecture-placeholder-note">Insert paper visual SVG/PNG here (regional effect estimates + qualitative evidence integration)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2154,91 +2040,47 @@ footer {
         <div class="accordion-item" data-category="economic" style="margin-top:2px;">
           <div class="accordion-header" onclick="toggleAccordion(this)">
             <div class="accordion-left">
-              <div class="accordion-title">NTIA Listening Session Analysis</div>
-              <div class="accordion-summary">Systematic NLP-powered analysis of public listening session inputs submitted to NTIA, transforming qualitative public comment into structured policy intelligence.</div>
+              <div class="accordion-title">NLP Policy Intelligence &amp; Geospatial Analysis</div>
+              <div class="accordion-summary">A unified NLP + policy research + geospatial approach to analysis, combining public input intelligence with implementation-plan analysis to support broadband strategy and evidence-based policy design.</div>
             </div>
             <div class="accordion-right">
               <span class="tag">NLP</span>
-              <span class="tag">Policy</span>
-              <span class="tag">Analysis</span>
+              <span class="tag">Geospatial</span>
+              <span class="tag">Advanced Viz</span>
+              <span class="tag">Policy Analysis</span>
               <div class="accordion-toggle">+</div>
             </div>
           </div>
           <div class="accordion-body">
             <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">Applied the qualitative research database framework to analyze thousands of public inputs submitted to NTIA listening sessions, identifying dominant themes, geographic patterns, and stakeholder-type differences in broadband policy priorities.</p>
+              <div class="accordion-text-col">
+                <div class="detail-block">
+                  <div class="detail-label">Overview</div>
+                  <p class="detail-text">Combined listening-session NLP analysis with implementation scenario research into a single service layer for policy intelligence. The system synthesizes unstructured inputs, policy documents, and geography-linked infrastructure data to surface actionable implementation insights.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Problem</div>
+                  <p class="detail-text">Public inputs and state implementation choices were being analyzed in silos, obscuring cross-signal patterns. Stakeholders lacked an integrated framework to connect thematic concerns, sentiment trends, geographic disparities, and likely policy outcome tradeoffs.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Approach</div>
+                  <p class="detail-text">Built an integrated analysis workflow that ingests comments, transcripts, and plan artifacts; performs multi-stage NLP enrichment; and links outputs to geospatial coverage and demographic context for comparative policy scenario assessment.</p>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Advanced NLP &amp; Analytics Methods</div>
+                  <p class="detail-text">Applied supervised and weakly supervised classification, semantic clustering, sentiment analysis, and topic modeling to identify dominant concerns and emerging issue clusters. Combined these with geospatial analysis and advanced visualization including choropleth + bivariate maps, Sankey flow diagrams for theme transitions, and network graphs linking stakeholder groups to priority topics.</p>
+                </div>
+                <div class="decision-impact">
+                  <div class="detail-label">Decision Impact</div>
+                  <p class="detail-text">Enabled policy teams and external stakeholders to evaluate implementation pathways using integrated qualitative, NLP, and geospatial evidence. Improved speed and clarity of evidence synthesis during active federal and state broadband decision windows.</p>
+                </div>
               </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">NTIA received thousands of written and verbal inputs across listening sessions. Manual review was too slow and too subjective to produce systematic intelligence for policy drafters.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach</div>
-                <p class="detail-text">Adapted thematic classification pipeline to NTIA-specific codebook. Processed ~4,500 inputs, identified top themes by stakeholder type and geography, and built summary visualizations for policy staff consumption.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">Multi-label NLP classification, topic modeling (BERTopic), geographic aggregation to CBSA level, stakeholder type clustering, Tableau dashboard for policy staff.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Provided policy team with first systematic, defensible read of public input within days of session close — rather than weeks. Theme priorities surfaced by analysis directly informed BEAD implementation guidance drafting.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Analysis delivered and used in policy drafting process. Methodology documented for replication in future comment periods.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Speed of delivery matters for policy relevance. An analysis that arrives after the decision window closes has zero impact, regardless of quality.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item" data-category="economic" style="margin-top:2px;">
-          <div class="accordion-header" onclick="toggleAccordion(this)">
-            <div class="accordion-left">
-              <div class="accordion-title">Blurring BEAD</div>
-              <div class="accordion-summary">Analysis examining how BEAD program design, eligibility definitions, and state implementation choices interact — and their implications for coverage outcomes and equity.</div>
-            </div>
-            <div class="accordion-right">
-              <span class="tag">Policy</span>
-              <span class="tag">Broadband</span>
-              <span class="tag">Equity</span>
-              <div class="accordion-toggle">+</div>
-            </div>
-          </div>
-          <div class="accordion-body">
-            <div class="accordion-body-inner">
-              <div class="detail-block">
-                <div class="detail-label">Overview</div>
-                <p class="detail-text">A policy analysis examining ambiguities in BEAD program design and how variation in state-level implementation choices could produce divergent coverage and equity outcomes — even with identical federal funding levels.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Problem</div>
-                <p class="detail-text">BEAD's flexible state-driven design creates wide implementation latitude. Stakeholders lacked a clear framework for understanding how different state choices interact with federal requirements — and what's at stake for underserved communities.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Approach</div>
-                <p class="detail-text">Mapped key program design decision points, modeled coverage scenario outcomes under different implementation choices using FCC broadband data and Census geography, and produced comparison analysis across state implementation plans.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Methods</div>
-                <p class="detail-text">Scenario modeling with FCC Fabric data, spatial analysis in Python (geopandas), comparative implementation plan review, structured policy framework development.</p>
-              </div>
-              <div class="decision-impact">
-                <div class="detail-label">Decision Impact</div>
-                <p class="detail-text">Used by advocacy organizations and state broadband offices to sharpen their review of state implementation plans. Framework cited in public comments to state broadband offices in three states.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Outcome / Status</div>
-                <p class="detail-text">Published analysis. Ongoing work tracking state implementation decisions against predicted coverage outcomes.</p>
-              </div>
-              <div class="detail-block">
-                <div class="detail-label">Key Learnings</div>
-                <p class="detail-text">Policy analysis has the most impact when it gives decision-makers a clear framework — not just conclusions. Structure and accessibility matter as much as analytical rigor.</p>
+              <div class="accordion-diagram-col">
+                <div class="detail-label">Flow Chart / Visual</div>
+                <div class="architecture-placeholder">
+                  <div class="architecture-placeholder-title">Diagram Placeholder</div>
+                  <div class="architecture-placeholder-note">Insert NLP + research + geospatial workflow SVG/PNG here (Ingestion -&gt; NLP Pipeline -&gt; Geospatial Linking -&gt; Visualization -&gt; Policy Outputs)</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2249,7 +2091,7 @@ footer {
       <div class="container">
         <div class="footer-inner">
           <div class="footer-logo">Victor Vassallo</div>
-          <div class="footer-copy">© 2025 · Data Scientist & AI Systems Builder</div>
+          <div class="footer-copy">© 2026 · Data Scientist & AI Systems Builder</div>
         </div>
       </div>
     </footer>
@@ -2273,17 +2115,17 @@ footer {
         <div class="contact-grid">
           <div class="contact-card">
             <div class="contact-card-label">Email</div>
-            <a href="mailto:victor@vassallo.io" class="contact-card-value">victor@vassallo.io</a>
+            <a href="mailto:victor@vassallo.io" class="contact-card-value">victorevassallo@gmail.com</a>
             <p class="contact-card-desc">Best for project inquiries, collaborations, and speaking requests.</p>
           </div>
           <div class="contact-card">
             <div class="contact-card-label">LinkedIn</div>
-            <a href="#" class="contact-card-value">linkedin.com/in/victorvassallo</a>
+            <a href="https://www.linkedin.com/in/victor-vassallo-0406a4248/" class="contact-card-value" target="_blank" rel="noopener noreferrer">View LinkedIn Profile →</a>
             <p class="contact-card-desc">Professional background, publications, and updates.</p>
           </div>
           <div class="contact-card">
             <div class="contact-card-label">Resume</div>
-            <a href="#" class="contact-card-value">Download PDF →</a>
+            <a href="Victor_Vassallo_Resume.pdf" class="contact-card-value" target="_blank" rel="noopener noreferrer">Download PDF →</a>
             <p class="contact-card-desc">Full work history, technical skills, and education.</p>
           </div>
           <div class="contact-card">
@@ -2304,7 +2146,7 @@ footer {
               <p style="font-size:0.85rem; color:rgba(237,227,213,0.6); line-height:1.6;">NLP, predictive modeling, analytical systems for civic/gov contexts</p>
             </div>
             <div>
-              <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--beige-warm); margin-bottom:8px;">Policy & Economic Research</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--beige-warm); margin-bottom:8px;">Policy & Economic Analysis</div>
               <p style="font-size:0.85rem; color:rgba(237,227,213,0.6); line-height:1.6;">Broadband, digital equity, federal program analysis and evaluation</p>
             </div>
           </div>
@@ -2315,56 +2157,46 @@ footer {
     <section class="speaking-section">
       <div class="container">
         <div class="section-label fade-in">Engagements</div>
-        <h2 class="section-title fade-in">Speaking & Presentations</h2>
+        <h2 class="section-title fade-in">Speaking Engagements</h2>
         <div class="speaking-list">
           <div class="speaking-item fade-in">
             <div class="speaking-meta">
-              <div class="speaking-type">Conference Talk</div>
-              <div class="speaking-org">Digital Equity Summit</div>
+              <div class="speaking-type">Conference Presentation</div>
+              <div class="speaking-org">Western Regional Science Association (WRSA) Annual Meeting</div>
             </div>
             <div>
-              <div class="speaking-title">Building AI Decision Systems for Civic Contexts</div>
-              <p class="speaking-desc">Presented a framework for designing RAG-based decision support systems in resource-constrained civic organizations, with case studies from federal grant opportunity intelligence.</p>
+              <div class="speaking-title">Mixed Methods Approaches to Broadband Research and Policy Analysis</div>
+              <p class="speaking-desc">Presented research at an international, multidisciplinary conference of economists, policymakers, and regional scientists focused on spatial and economic analysis. Shared a mixed-methods framework integrating quantitative modeling with qualitative insights to inform broadband policy and regional development strategies.</p>
             </div>
           </div>
           <div class="speaking-item fade-in" style="transition-delay:0.1s">
             <div class="speaking-meta">
               <div class="speaking-type">Panel</div>
-              <div class="speaking-org">State Broadband Leadership Network</div>
+              <div class="speaking-org">Federal Reserve Digital Access Research Forum</div>
             </div>
             <div>
-              <div class="speaking-title">Data-Driven BEAD Implementation: What States Need</div>
-              <p class="speaking-desc">Panel discussion on analytical infrastructure and data strategies for state broadband offices navigating BEAD implementation, including coverage verification and equity tracking.</p>
+              <div class="speaking-title">Connecting Minority Communities</div>
+              <p class="speaking-desc">Panelist at a national convening hosted by multiple Federal Reserve Banks, bringing together researchers, policymakers, and practitioners to advance work on digital access and economic inclusion. Contributed perspectives on equity-focused broadband deployment and the role of data in identifying and addressing disparities in underserved communities.</p>
             </div>
           </div>
           <div class="speaking-item fade-in" style="transition-delay:0.2s">
             <div class="speaking-meta">
-              <div class="speaking-type">Workshop</div>
-              <div class="speaking-org">Applied Research Collaborative</div>
+              <div class="speaking-type">Presentation</div>
+              <div class="speaking-org">Broadband Breakfast (National Broadband Media Platform)</div>
             </div>
             <div>
-              <div class="speaking-title">From Qualitative to Structured: NLP for Policy Research</div>
-              <p class="speaking-desc">Hands-on workshop on applying NLP classification methods to qualitative policy research data — including codebook design, model training, and analyst-facing output design.</p>
+              <div class="speaking-title">BEAD Policy Restructuring &amp; NLP Applications in Policy Analysis</div>
+              <p class="speaking-desc">Delivered a policy-focused presentation for a national broadband policy audience, examining evolving BEAD implementation strategies and demonstrating how NLP methods can be used to systematically analyze policy documents and public input at scale.</p>
             </div>
           </div>
           <div class="speaking-item fade-in" style="transition-delay:0.3s">
             <div class="speaking-meta">
-              <div class="speaking-type">Presentation</div>
-              <div class="speaking-org">NTIA Broadband Forum</div>
+              <div class="speaking-type">Conference Talk</div>
+              <div class="speaking-org">ForwardDMV (Regional Workforce &amp; Innovation Conference)</div>
             </div>
             <div>
-              <div class="speaking-title">Listening at Scale: Systematic Analysis of Public Input</div>
-              <p class="speaking-desc">Presented methodology and findings from NLP-powered analysis of NTIA listening session inputs, demonstrating how systematic qualitative analysis can inform federal policy drafting.</p>
-            </div>
-          </div>
-          <div class="speaking-item fade-in" style="transition-delay:0.4s">
-            <div class="speaking-meta">
-              <div class="speaking-type">Invited Talk</div>
-              <div class="speaking-org">University Data Science Program</div>
-            </div>
-            <div>
-              <div class="speaking-title">Applied AI in Policy and Civic Tech: A Practitioner's Perspective</div>
-              <p class="speaking-desc">Guest lecture on bridging academic data science training with the practical realities of building AI systems for government and civic sector clients — including data quality, stakeholder trust, and interpretability requirements.</p>
+              <div class="speaking-title">Identifying and Implementing AI-Supported Workflows</div>
+              <p class="speaking-desc">Panel discussion with regional leaders and practitioners on practical approaches to identifying high-value AI use cases within organizations, with emphasis on implementation strategy, change management, and aligning technical capabilities with operational needs.</p>
             </div>
           </div>
         </div>
@@ -2383,7 +2215,7 @@ footer {
       <div class="container">
         <div class="footer-inner">
           <div class="footer-logo">Victor Vassallo</div>
-          <div class="footer-copy">© 2025 · Data Scientist & AI Systems Builder</div>
+          <div class="footer-copy">© 2026 · Data Scientist & AI Systems Builder</div>
         </div>
       </div>
     </footer>
@@ -2394,19 +2226,48 @@ footer {
 ============================================================ -->
 <script>
 // ── Page Navigation ──────────────────────────────────────────
-function showPage(pageId) {
+function normalizeHashToPageId(rawHash) {
+  const hash = (rawHash || '').replace(/^#/, '').trim().toLowerCase();
+  const hashMap = {
+    '': 'home',
+    home: 'home',
+    projects: 'projects',
+    project: 'projects',
+    contact: 'contact',
+    contacts: 'contact'
+  };
+  return hashMap[hash] || 'home';
+}
+
+function showPage(pageId, opts = {}) {
+  const { updateHash = true } = opts;
+  const normalizedPageId = normalizeHashToPageId(pageId);
+  const nextPage = document.getElementById('page-' + normalizedPageId);
+  if (!nextPage) return;
+
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + pageId).classList.add('active');
+  nextPage.classList.add('active');
   // Nav active state
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  const navEl = document.getElementById('nav-' + pageId);
+  const navEl = document.getElementById('nav-' + normalizedPageId);
   if (navEl) navEl.classList.add('active');
   // Close mobile menu
   document.getElementById('navLinks').classList.remove('open');
+  // Sync URL hash
+  if (updateHash) {
+    const targetHash = '#' + normalizedPageId;
+    if (window.location.hash !== targetHash) {
+      window.location.hash = targetHash;
+    }
+  }
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
   // Trigger fade-ins after a moment
   setTimeout(triggerFadeIns, 100);
+}
+
+function navigateFromHash() {
+  showPage(window.location.hash, { updateHash: false });
 }
 // ── Mobile Menu ───────────────────────────────────────────────
 function toggleMenu() {
@@ -2481,10 +2342,13 @@ function filterProjects(category, btn) {
 }
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
+  navigateFromHash();
+  window.addEventListener('hashchange', navigateFromHash);
   setTimeout(triggerFadeIns, 400);
 });
 </script>
 </body>
 </html>
+
 
 
