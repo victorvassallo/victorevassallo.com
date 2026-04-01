@@ -1,0 +1,71 @@
+<svg id="sv" width="100%" viewBox="0 0 900 348" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans',sans-serif"><style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500&amp;display=swap');</style><rect width="900" height="348" fill="#FAF6F0"/>
+    <defs>
+      <marker id="mf" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#9C7A60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+      <marker id="ml" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- top label -->
+    <text x="450" y="30" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#B09878" letter-spacing=".14em" text-anchor="middle" dominant-baseline="central">CLOSED LOOP  ·  PREDICTION → DIAGNOSIS → ACTION</text>
+    <line x1="50" y1="42" x2="850" y2="42" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+
+    <!-- ═══ BOX 1: PREDICTION  x=50..290, cx=170 ═══ -->
+    <rect x="50" y="58" width="240" height="200" rx="6" fill="#EAE8F5" stroke="#8A80C8" stroke-width="1.25"/>
+    <rect x="50" y="58" width="240" height="6" rx="6" fill="#8A80C8"/>
+    <rect x="50" y="61" width="240" height="3" fill="#8A80C8"/>
+    <text x="170" y="88" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="500" fill="#4A38A0" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">PREDICTION</text>
+    <text x="170" y="114" font-size="13" font-weight="500" fill="#1A1050" text-anchor="middle" dominant-baseline="central">Predictive Modeling</text>
+    <text x="170" y="138" font-size="11" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">Forecast participation volume</text>
+    <text x="170" y="155" font-size="11" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">and outcome quality from</text>
+    <text x="170" y="172" font-size="11" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">historical signals and</text>
+    <text x="170" y="189" font-size="11" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">structural program data</text>
+    <!-- sub-tag: x=62, w=216, y=214, h=34 -->
+    <rect x="62" y="214" width="216" height="34" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="170" y="224" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">XGBoost · Platt scaling</text>
+    <text x="170" y="239" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">conformal prediction</text>
+
+    <!-- arrow 1→2: y=158 (box cy = 58+100=158) -->
+    <line x1="290" y1="158" x2="330" y2="158" stroke="#9C7A60" stroke-width="1.5" marker-end="url(#mf)"/>
+
+    <!-- ═══ BOX 2: DIAGNOSIS  x=330..570, cx=450 ═══ -->
+    <rect x="330" y="58" width="240" height="200" rx="6" fill="#FDF0E4" stroke="#D4956A" stroke-width="1.25"/>
+    <rect x="330" y="58" width="240" height="6" rx="6" fill="#D4956A"/>
+    <rect x="330" y="61" width="240" height="3" fill="#D4956A"/>
+    <text x="450" y="88" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="500" fill="#7A4010" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">DIAGNOSIS</text>
+    <text x="450" y="114" font-size="13" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Risk Attribution</text>
+    <text x="450" y="138" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">Identify drivers of risk and</text>
+    <text x="450" y="155" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">segment outcomes into</text>
+    <text x="450" y="172" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">interpretable scenarios for</text>
+    <text x="450" y="189" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">targeted response</text>
+    <!-- sub-tag -->
+    <rect x="342" y="214" width="216" height="34" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="450" y="224" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">SHAP attribution</text>
+    <text x="450" y="239" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">scenario segmentation</text>
+
+    <!-- arrow 2→3 -->
+    <line x1="570" y1="158" x2="610" y2="158" stroke="#9C7A60" stroke-width="1.5" marker-end="url(#mf)"/>
+
+    <!-- ═══ BOX 3: ACTION  x=610..850, cx=730 ═══ -->
+    <rect x="610" y="58" width="240" height="200" rx="6" fill="#EBF5F0" stroke="#7ABE9E" stroke-width="1.25"/>
+    <rect x="610" y="58" width="240" height="6" rx="6" fill="#7ABE9E"/>
+    <rect x="610" y="61" width="240" height="3" fill="#7ABE9E"/>
+    <text x="730" y="88" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="500" fill="#2A7050" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">ACTION</text>
+    <text x="730" y="114" font-size="13" font-weight="500" fill="#1A4035" text-anchor="middle" dominant-baseline="central">Intervention Strategy</text>
+    <text x="730" y="138" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">Deploy targeted interventions</text>
+    <text x="730" y="155" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">using threshold-based decision</text>
+    <text x="730" y="172" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">rules to optimize allocation</text>
+    <text x="730" y="189" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">and shape outcomes</text>
+    <!-- sub-tag -->
+    <rect x="622" y="214" width="216" height="34" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="730" y="224" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Decision rules</text>
+    <text x="730" y="239" font-family="'IBM Plex Mono',monospace" font-size="9" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">confidence thresholds</text>
+
+    <!-- ═══ FEEDBACK LOOP ARC ═══ -->
+    <!-- From box3 bottom cx=730,y=258 → down to 306 → left to 170 → up to box1 bottom 170,258 -->
+    <path d="M730,258 L730,306 L170,306 L170,258" fill="none" stroke="#C4A882" stroke-width="1.25" stroke-dasharray="5 4" marker-end="url(#ml)"/>
+    <text x="450" y="324" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#C4A882" text-anchor="middle" letter-spacing=".12em">OUTCOME FEEDBACK  ·  CONTINUOUS MODEL IMPROVEMENT</text>
+
+  </svg>

@@ -1,0 +1,242 @@
+<svg width="1100" height="776" viewBox="0 0 1100 776" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans',sans-serif">
+  <style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500&amp;display=swap');</style>
+  <rect width="1100" height="776" fill="#FAF6F0"/>
+
+  <defs>
+    <marker id="m0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#9C7A60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#7A8FA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="mt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#5A9A82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ma" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#9C6B4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#B09880" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="md" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M2 2L8 5L2 8" fill="none" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!--
+    LAYOUT PLAN
+    ═══════════════════════════════════════════════════
+    Total width: 1100. Sidebar: 0..44. Content: 44..1060. Bypass margin: 1060..1100.
+
+    Box dimensions (uniform for retrieval/gen/output rows):
+      Standard box: w=192, h=80
+
+    4-column layout for retrieval/gen/output:
+      Total content width = 1060 - 44 = 1016
+      4 boxes * 192 = 768, gaps = 1016 - 768 = 248, so 3 gaps of ~82 + outer padding ~1
+      col centers (from x=44):
+        col1 cx = 44 + 1 + 96  = 141
+        col2 cx = 141 + 192 + 82 = 415   (gap=82 → next left edge = 141+96+82=319, cx=319+96=415)
+        col3 cx = 415 + 192 + 82 = 689
+        col4 cx = 689 + 192 + 82 = 963
+
+      Box left edges: col1=45, col2=319, col3=593, col4=867
+
+    INPUT section: y=30..210
+      Corpus box: w=220, h=52, centered at x=552 → x=442, y=38
+      User Query box: w=220, h=52, centered at x=552 → x=442, y=104
+      Intent Router: spans col1..col4 inner: x=45..1055, y=166, h=38
+
+    RETRIEVAL section: y=220..330  (band h=110)
+      boxes y=228, h=80, center_y=268
+
+    GEN section: y=340..560  (band h=220 — two sub-rows with room)
+      Context Assembly row: boxes y=350, h=80, center_y=390  (3 boxes, col1-3)
+      Generation row:       boxes y=460, h=80, center_y=500  (3 boxes, col1-3)
+
+    OUTPUT section: y=570..680  (band h=110)
+      boxes y=578, h=80, center_y=618  (3 boxes: col1,col2,col3 — uniform spacing)
+      Output col centers: same as retrieval but only 3 boxes so center the group
+        3 boxes * 192 = 576, 2 gaps * 82 = 164 → total group = 740
+        start x = 44 + (1016-740)/2 = 44 + 138 = 182
+        out_col1 cx = 182 + 96 = 278
+        out_col2 cx = 278 + 192 + 82 = 552
+        out_col3 cx = 552 + 192 + 82 = 826
+        Box left edges: 182, 456, 730
+  -->
+
+  <!-- ═══ PHASE SIDEBAR ═══ -->
+  <!-- INPUT: y=30..266 -->
+  <line x1="32" y1="30" x2="32" y2="266" stroke="#D4B898" stroke-width="0.75"/>
+  <text transform="rotate(-90,16,148)" x="16" y="148" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">INPUT</text>
+
+  <!-- RETRIEVAL: y=276..386 -->
+  <line x1="32" y1="276" x2="32" y2="386" stroke="#D4B898" stroke-width="0.75"/>
+  <text transform="rotate(-90,16,331)" x="16" y="331" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">RETRIEVAL</text>
+
+  <!-- GEN: y=396..616 -->
+  <line x1="32" y1="396" x2="32" y2="616" stroke="#D4B898" stroke-width="0.75"/>
+  <text transform="rotate(-90,16,506)" x="16" y="506" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">GEN</text>
+
+  <!-- OUTPUT: y=626..736 -->
+  <line x1="32" y1="626" x2="32" y2="736" stroke="#D4B898" stroke-width="0.75"/>
+  <text transform="rotate(-90,16,681)" x="16" y="681" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">OUTPUT</text>
+
+  <!-- ═══ HORIZONTAL DIVIDERS ═══ -->
+  <line x1="38" y1="30"  x2="1062" y2="30"  stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="266" x2="1062" y2="266" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="276" x2="1062" y2="276" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="386" x2="1062" y2="386" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="396" x2="1062" y2="396" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="616" x2="1062" y2="616" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="626" x2="1062" y2="626" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+  <line x1="38" y1="736" x2="1062" y2="736" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+
+  <!-- ═══ INPUT SECTION ═══ -->
+
+  <!-- Persistent Corpus: centered at x=552, y=38, w=220, h=52 -->
+  <rect x="442" y="38" width="220" height="52" rx="5" fill="#F5EFE6" stroke="#B09070" stroke-width="0.75"/>
+  <text x="552" y="58" font-size="13" font-weight="500" fill="#3D2B22" text-anchor="middle" dominant-baseline="central">Persistent Corpus</text>
+  <text x="552" y="78" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Pre-embedded knowledge base</text>
+
+  <!-- Arrow: Corpus → User Query -->
+  <line x1="552" y1="90" x2="552" y2="104" stroke="#9C7A60" stroke-width="1.25" marker-end="url(#m0)"/>
+
+  <!-- User Query: centered at x=552, y=104, w=220, h=52 -->
+  <rect x="442" y="104" width="220" height="52" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="552" y="124" font-size="13" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">User Query</text>
+  <text x="552" y="144" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Natural language question</text>
+
+  <!-- Arrow: User Query → Intent Router -->
+  <line x1="552" y1="156" x2="552" y2="176" stroke="#7A8FA8" stroke-width="1.25" marker-end="url(#mb)"/>
+
+  <!-- Intent Router: same 192×80 box as all others, centered at cx=552, y=176 -->
+  <rect x="456" y="176" width="192" height="80" rx="5" fill="#EAE8F5" stroke="#8A88C8" stroke-width="1.25"/>
+  <text x="552" y="204" font-size="13" font-weight="500" fill="#3A3880" text-anchor="middle" dominant-baseline="central">Intent Router</text>
+  <text x="552" y="224" font-size="10" fill="#5A58A0" text-anchor="middle" dominant-baseline="central">Classification · Dispatch · Filter</text>
+
+  <!-- Arrow: from LEFT side of Intent Router (x=456, y=216) → left to col1 cx=141, then down to retrieval -->
+  <path d="M456,216 L141,216 L141,284" fill="none" stroke="#7A8FA8" stroke-width="1.25" marker-end="url(#mb)"/>
+
+  <!-- ═══ RETRIEVAL SECTION  y=276..386, boxes y=284, h=80, center_y=324 ═══ -->
+
+  <!-- col1 cx=141, x=45 -->
+  <rect x="45" y="284" width="192" height="80" rx="5" fill="#EBF5F0" stroke="#7ABE9E" stroke-width="0.75"/>
+  <text x="141" y="312" font-size="13" font-weight="500" fill="#1A4035" text-anchor="middle" dominant-baseline="central">Query Embedding</text>
+  <text x="141" y="332" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">Semantic vector</text>
+  <text x="141" y="350" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">representation</text>
+
+  <!-- col2 cx=415, x=319 -->
+  <rect x="319" y="284" width="192" height="80" rx="5" fill="#EBF5F0" stroke="#7ABE9E" stroke-width="0.75"/>
+  <text x="415" y="312" font-size="13" font-weight="500" fill="#1A4035" text-anchor="middle" dominant-baseline="central">Multi-Source Search</text>
+  <text x="415" y="332" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">FAISS index + session</text>
+  <text x="415" y="350" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">candidate retrieval</text>
+
+  <!-- col3 cx=689, x=593 -->
+  <rect x="593" y="284" width="192" height="80" rx="5" fill="#EBF5F0" stroke="#7ABE9E" stroke-width="0.75"/>
+  <text x="689" y="312" font-size="13" font-weight="500" fill="#1A4035" text-anchor="middle" dominant-baseline="central">Metadata Reranking</text>
+  <text x="689" y="332" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">Doc-type · recency ·</text>
+  <text x="689" y="350" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">intent boost</text>
+
+  <!-- col4 cx=963, x=867 -->
+  <rect x="867" y="284" width="192" height="80" rx="5" fill="#EBF5F0" stroke="#7ABE9E" stroke-width="0.75"/>
+  <text x="963" y="312" font-size="13" font-weight="500" fill="#1A4035" text-anchor="middle" dominant-baseline="central">MMR Diversification</text>
+  <text x="963" y="332" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">Relevance + diversity</text>
+  <text x="963" y="350" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">balance</text>
+
+  <!-- Retrieval row connectors at y=324 -->
+  <line x1="237" y1="324" x2="319" y2="324" stroke="#5A9A82" stroke-width="1.25" marker-end="url(#mt)"/>
+  <line x1="511" y1="324" x2="593" y2="324" stroke="#5A9A82" stroke-width="1.25" marker-end="url(#mt)"/>
+  <line x1="785" y1="324" x2="867" y2="324" stroke="#5A9A82" stroke-width="1.25" marker-end="url(#mt)"/>
+
+  <!-- Snake retrieval col4 bottom → down to GEN context assembly gen_col1 cx=278 -->
+  <path d="M963,364 L963,378 L278,378 L278,406" fill="none" stroke="#5A9A82" stroke-width="1.25" marker-end="url(#mt)"/>
+
+  <!-- ═══ GEN SECTION  y=396..616 ═══
+       3 boxes centered: gen_col1 cx=278 x=182, gen_col2 cx=552 x=456, gen_col3 cx=826 x=730
+  ═══ -->
+
+  <!-- ── Context Assembly sub-row: boxes y=406, h=80, center_y=446 ── -->
+
+  <!-- gen_col1 cx=278, x=182 -->
+  <rect x="182" y="406" width="192" height="80" rx="5" fill="#F5F0E8" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="278" y="434" font-size="13" font-weight="500" fill="#3D2B22" text-anchor="middle" dominant-baseline="central">Post-Processing</text>
+  <text x="278" y="454" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">File balance · coverage</text>
+  <text x="278" y="472" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">guarantees · dedup</text>
+
+  <!-- gen_col2 cx=552, x=456 -->
+  <rect x="456" y="406" width="192" height="80" rx="5" fill="#F5F0E8" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="552" y="434" font-size="13" font-weight="500" fill="#3D2B22" text-anchor="middle" dominant-baseline="central">Context Expansion</text>
+  <text x="552" y="454" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Parent + neighbor windows</text>
+  <text x="552" y="472" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">· token budget trimming</text>
+
+  <!-- gen_col3 cx=826, x=730 -->
+  <rect x="730" y="406" width="192" height="80" rx="5" fill="#F5F0E8" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="826" y="434" font-size="13" font-weight="500" fill="#3D2B22" text-anchor="middle" dominant-baseline="central">Citation Assembly</text>
+  <text x="826" y="454" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Source annotation ·</text>
+  <text x="826" y="472" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">reference linking</text>
+
+  <!-- Context assembly connectors at y=446 -->
+  <line x1="374" y1="446" x2="456" y2="446" stroke="#B09880" stroke-width="1.25" marker-end="url(#mg)"/>
+  <line x1="648" y1="446" x2="730" y2="446" stroke="#B09880" stroke-width="1.25" marker-end="url(#mg)"/>
+
+  <!-- Snake gen_col3 bottom → generation gen_col1 top -->
+  <path d="M826,486 L826,500 L278,500 L278,516" fill="none" stroke="#B09880" stroke-width="1.25" marker-end="url(#mg)"/>
+
+  <!-- ── Generation sub-row: boxes y=516, h=80, center_y=556 ── -->
+
+  <!-- gen_col1 cx=278, x=182 -->
+  <rect x="182" y="516" width="192" height="80" rx="5" fill="#FDF0E4" stroke="#D4956A" stroke-width="0.75"/>
+  <text x="278" y="544" font-size="13" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Prompt Construction</text>
+  <text x="278" y="564" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">Grounded assembly ·</text>
+  <text x="278" y="582" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">citation scaffolding</text>
+
+  <!-- gen_col2 cx=552, x=456 — prominent LLM box -->
+  <rect x="456" y="516" width="192" height="80" rx="5" fill="#F8E8D0" stroke="#C07830" stroke-width="1.5"/>
+  <text x="552" y="544" font-size="13" font-weight="500" fill="#4A2008" text-anchor="middle" dominant-baseline="central">Managed LLM</text>
+  <text x="552" y="564" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">Retry · backoff ·</text>
+  <text x="552" y="582" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">concurrency</text>
+
+  <!-- gen_col3 cx=826, x=730 -->
+  <rect x="730" y="516" width="192" height="80" rx="5" fill="#FDF0E4" stroke="#D4956A" stroke-width="0.75"/>
+  <text x="826" y="544" font-size="13" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Streaming Output</text>
+  <text x="826" y="564" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">SSE token delivery ·</text>
+  <text x="826" y="582" font-size="11" fill="#7A4020" text-anchor="middle" dominant-baseline="central">answer + citations</text>
+
+  <!-- Generation connectors at y=556 -->
+  <line x1="374" y1="556" x2="456" y2="556" stroke="#9C6B4E" stroke-width="1.25" marker-end="url(#ma)"/>
+  <line x1="648" y1="556" x2="730" y2="556" stroke="#9C6B4E" stroke-width="1.25" marker-end="url(#ma)"/>
+
+  <!-- Snake gen col3 bottom → output col1 -->
+  <path d="M826,596 L826,610 L278,610 L278,634" fill="none" stroke="#9C6B4E" stroke-width="1.25" marker-end="url(#ma)"/>
+
+  <!-- ═══ OUTPUT SECTION  y=626..736
+       out_col1 cx=278 x=182, out_col2 cx=552 x=456, out_col3 cx=826 x=730
+  ═══ -->
+
+  <!-- out_col1: User Response cx=278, x=182 -->
+  <rect x="182" y="634" width="192" height="80" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="278" y="662" font-size="13" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">User Response</text>
+  <text x="278" y="682" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Answer + cited sources</text>
+
+  <!-- out_col2: Answer Cache cx=552, x=456 -->
+  <rect x="456" y="634" width="192" height="80" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="552" y="662" font-size="13" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Answer Cache</text>
+  <text x="552" y="682" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">TTL-bounded response store</text>
+
+  <!-- out_col3: Audit Logging cx=826, x=730 -->
+  <rect x="730" y="634" width="192" height="80" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+  <text x="826" y="662" font-size="13" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Audit Logging</text>
+  <text x="826" y="682" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Query · source · response</text>
+
+  <!-- Output row connectors at y=674 -->
+  <line x1="374" y1="674" x2="456" y2="674" stroke="#9C7A60" stroke-width="1.25" marker-end="url(#m0)"/>
+  <line x1="648" y1="674" x2="730" y2="674" stroke="#9C7A60" stroke-width="1.25" marker-end="url(#m0)"/>
+
+  <!-- ═══ CACHE HIT BYPASS LOOP
+       From Answer Cache bottom (552,714) → down to 754 → right to 1075 → up to Intent Router mid y=216 → left to right edge of Intent Router (x=648)
+  ═══ -->
+  <path d="M552,714 L552,754 L1075,754 L1075,216 L648,216" fill="none" stroke="#C4A882" stroke-width="1" stroke-dasharray="5 4" marker-end="url(#md)"/>
+  <text transform="rotate(90,1087,485)" x="1087" y="485" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#C4A882" text-anchor="middle" letter-spacing=".1em">CACHE HIT BYPASS</text>
+
+</svg>

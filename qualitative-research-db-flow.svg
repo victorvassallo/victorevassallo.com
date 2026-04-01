@@ -1,0 +1,151 @@
+<svg id="sv" width="100%" viewBox="0 0 900 730" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans',sans-serif"><style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@300;400;500&amp;display=swap');</style><rect width="900" height="730" fill="#FAF6F0"/>
+    <defs>
+      <marker id="m0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#9C7A60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+      <marker id="mt" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#5A9A82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+      <marker id="mb" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#7A8FA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+      <marker id="ma" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M2 2L8 5L2 8" fill="none" stroke="#9C6B4E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+
+    <!-- ═══ PHASE SIDEBAR LINES + LABELS ═══ -->
+
+    <line x1="30" y1="8" x2="30" y2="184" stroke="#D4B898" stroke-width="0.75"/>
+    <text transform="rotate(-90,14,96)" x="14" y="96" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">INGESTION</text>
+
+    <line x1="30" y1="192" x2="30" y2="272" stroke="#D4B898" stroke-width="0.75"/>
+    <text transform="rotate(-90,14,232)" x="14" y="232" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">NORMALIZE</text>
+
+    <line x1="30" y1="288" x2="30" y2="368" stroke="#D4B898" stroke-width="0.75"/>
+    <text transform="rotate(-90,14,328)" x="14" y="328" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">INDEXING</text>
+
+    <line x1="30" y1="384" x2="30" y2="504" stroke="#D4B898" stroke-width="0.75"/>
+    <text transform="rotate(-90,14,444)" x="14" y="444" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">RETRIEVAL</text>
+
+    <line x1="30" y1="520" x2="30" y2="692" stroke="#D4B898" stroke-width="0.75"/>
+    <text transform="rotate(-90,14,606)" x="14" y="606" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" letter-spacing=".12em" text-anchor="middle">OUTPUTS</text>
+
+    <!-- ═══ HORIZONTAL DIVIDERS ═══ -->
+    <line x1="36" y1="8" x2="864" y2="8" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="184" x2="864" y2="184" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="192" x2="864" y2="192" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="272" x2="864" y2="272" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="288" x2="864" y2="288" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="368" x2="864" y2="368" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="384" x2="864" y2="384" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="504" x2="864" y2="504" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="520" x2="864" y2="520" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+    <line x1="36" y1="692" x2="864" y2="692" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"/>
+
+    <!-- ═══ INGESTION CONTAINER  y=8, h=176, full-width ═══ -->
+    <rect x="38" y="8" width="824" height="176" rx="6" fill="#FAF6F0" stroke="#C4A882" stroke-width="1"/>
+    <text x="56" y="30" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="500" fill="#6B4535" letter-spacing=".08em" dominant-baseline="central">Multi-Source Ingestion</text>
+    <text x="56" y="48" font-size="11" fill="#9C7A5A" dominant-baseline="central">Heterogeneous qualitative evidence collected and unified into a shared ingestion pipeline</text>
+
+    <!-- 4 source boxes: w=176, gap=12, start=80 -->
+    <!-- box cx: 80+88=168, 268+88=356, 456+88=544, 644+88=732 -->
+
+    <rect x="80" y="66" width="176" height="100" rx="5" fill="#F5EFE6" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="168" y="93" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Mandated Reports</text>
+    <text x="168" y="113" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Federal and program</text>
+    <text x="168" y="130" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">reporting submissions</text>
+
+    <rect x="268" y="66" width="176" height="100" rx="5" fill="#F5EFE6" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="356" y="93" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Survey Instruments</text>
+    <text x="356" y="113" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Structured responses and</text>
+    <text x="356" y="130" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">qualitative field data</text>
+
+    <rect x="456" y="66" width="176" height="100" rx="5" fill="#F5EFE6" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="544" y="93" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Interviews &amp; Narratives</text>
+    <text x="544" y="113" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Stakeholder accounts and</text>
+    <text x="544" y="130" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">qualitative evidence</text>
+
+    <rect x="644" y="66" width="176" height="100" rx="5" fill="#F5EFE6" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="732" y="93" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Media &amp; Web Sources</text>
+    <text x="732" y="113" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Scraped references and</text>
+    <text x="732" y="130" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">secondary evidence</text>
+
+    <!-- fan-in to container bottom -->
+    <line x1="168" y1="166" x2="450" y2="184" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+    <line x1="356" y1="166" x2="450" y2="184" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+    <line x1="544" y1="166" x2="450" y2="184" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+    <line x1="732" y1="166" x2="450" y2="184" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+
+    <!-- connector to normalization -->
+    <line x1="450" y1="184" x2="450" y2="192" stroke="#9C7A60" stroke-width="1" marker-end="url(#m0)"/>
+
+    <!-- ═══ NORMALIZATION  y=192, h=80, cx=450 ═══ -->
+    <rect x="330" y="192" width="240" height="80" rx="5" fill="#EBF5F0" stroke="#7ABE9E" stroke-width="1"/>
+    <text x="450" y="216" font-size="13" font-weight="500" fill="#1A4035" text-anchor="middle" dominant-baseline="central">Metadata Mapping &amp; Normalization</text>
+    <text x="450" y="236" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">Schema standardization, provenance tagging,</text>
+    <text x="450" y="253" font-size="11" fill="#3A7060" text-anchor="middle" dominant-baseline="central">entity extraction, and term mapping</text>
+
+    <!-- connector to indexing -->
+    <line x1="450" y1="272" x2="450" y2="288" stroke="#5A9A82" stroke-width="1" marker-end="url(#mt)"/>
+
+    <!-- ═══ INDEXING  y=288, h=80, cx=450 ═══ -->
+    <rect x="330" y="288" width="240" height="80" rx="5" fill="#EAE8F5" stroke="#8A88C8" stroke-width="1"/>
+    <text x="450" y="312" font-size="13" font-weight="500" fill="#1A1850" text-anchor="middle" dominant-baseline="central">Embedding &amp; Vector Indexing</text>
+    <text x="450" y="332" font-size="11" fill="#4A4890" text-anchor="middle" dominant-baseline="central">Embedding generation, source-level indexing,</text>
+    <text x="450" y="349" font-size="11" fill="#4A4890" text-anchor="middle" dominant-baseline="central">and citation-traceable semantic layer</text>
+
+    <!-- connector to retrieval -->
+    <line x1="450" y1="368" x2="450" y2="384" stroke="#7A78C0" stroke-width="1" marker-end="url(#mb)"/>
+
+    <!-- ═══ RETRIEVAL CONTAINER  y=384, h=120, full-width ═══ -->
+    <rect x="38" y="384" width="824" height="120" rx="6" fill="#EAE8F5" stroke="#8A88C8" stroke-width="1.25"/>
+    <text x="56" y="406" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="500" fill="#3A38A0" letter-spacing=".08em" dominant-baseline="central">Context-Aware Semantic Retrieval</text>
+    <text x="56" y="424" font-size="11" fill="#5A58A0" dominant-baseline="central">Metadata-aware retrieval keys and context-window assembly for structured and semantic query</text>
+
+    <!-- Left panel: Structured Filtering x=80..442 cx=261 -->
+    <rect x="80" y="438" width="362" height="54" rx="4" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="261" y="456" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Structured Filtering</text>
+    <text x="261" y="476" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Source type · entity tag · provenance metadata</text>
+
+    <!-- Right panel: Semantic Search x=458..820 cx=639 -->
+    <rect x="458" y="438" width="362" height="54" rx="4" fill="#F0EEF8" stroke="#8A88C8" stroke-width="0.75"/>
+    <text x="639" y="456" font-size="12" font-weight="500" fill="#1A1850" text-anchor="middle" dominant-baseline="central">Semantic Search &amp; Synthesis</text>
+    <text x="639" y="476" font-size="11" fill="#4A4890" text-anchor="middle" dominant-baseline="central">Vector similarity · context assembly · citation tracing</text>
+
+    <!-- connector to outputs -->
+    <line x1="450" y1="504" x2="450" y2="520" stroke="#7A78C0" stroke-width="1" marker-end="url(#mb)"/>
+
+    <!-- ═══ OUTPUTS CONTAINER  y=520, h=172, full-width ═══ -->
+    <rect x="38" y="520" width="824" height="172" rx="6" fill="#EDE3D5" stroke="#9C6B4E" stroke-width="1"/>
+    <text x="56" y="542" font-family="'IBM Plex Mono',monospace" font-size="9" font-weight="500" fill="#6B4535" letter-spacing=".08em" dominant-baseline="central">Research Outputs</text>
+    <text x="56" y="560" font-size="11" fill="#9C7A5A" dominant-baseline="central">Analysis, synthesis, and decision support across policy and program research workflows</text>
+
+    <!-- 4 output boxes: w=176, gap=12, start=80 -->
+    <rect x="80" y="576" width="176" height="100" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="168" y="603" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Institutional Analysis</text>
+    <text x="168" y="623" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Cross-grantee challenge</text>
+    <text x="168" y="640" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">and solution mapping</text>
+
+    <rect x="268" y="576" width="176" height="100" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="356" y="603" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Cluster Analysis</text>
+    <text x="356" y="623" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Entity, offering, and</text>
+    <text x="356" y="640" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">use case classification</text>
+
+    <rect x="456" y="576" width="176" height="100" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="544" y="603" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Policy Research</text>
+    <text x="544" y="623" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Congressional reports and</text>
+    <text x="544" y="640" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">budget proposal support</text>
+
+    <rect x="644" y="576" width="176" height="100" rx="5" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"/>
+    <text x="732" y="603" font-size="12" font-weight="500" fill="#2E1F1F" text-anchor="middle" dominant-baseline="central">Knowledge Artifacts</text>
+    <text x="732" y="623" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">Toolkits, guides, and</text>
+    <text x="732" y="640" font-size="11" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">white papers</text>
+
+    <!-- fan-in from retrieval to output boxes -->
+    <line x1="450" y1="520" x2="168" y2="576" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+    <line x1="450" y1="520" x2="356" y2="576" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+    <line x1="450" y1="520" x2="544" y2="576" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+    <line x1="450" y1="520" x2="732" y2="576" stroke="#C4A882" stroke-width="0.75" opacity="0.7"/>
+
+  </svg>

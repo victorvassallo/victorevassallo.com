@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="main-svg" xmlns="http://www.w3.org/2000/svg" width="980" viewBox="0 0 980 560" font-family="'IBM Plex Sans', sans-serif" height="560">
+<defs>
+  <marker id="mf" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+    <path d="M2 2L8 5L2 8" fill="none" stroke="#9C7A60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </marker>
+  <marker id="md" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+    <path d="M2 2L8 5L2 8" fill="none" stroke="#B09878" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+  </marker>
+</defs>
+
+<rect width="980" height="560" fill="#FAF6F0"></rect>
+
+<text x="490" y="22" font-family="'IBM Plex Mono',monospace" font-size="8.5" fill="#B09878" letter-spacing=".14em" text-anchor="middle" dominant-baseline="central">OPERATIONAL ANALYTICS &amp; RESOURCE ALLOCATION  ·  ML · FORECASTING · RISK · PLANNING</text>
+<line x1="40" y1="33" x2="940" y2="33" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"></line>
+
+<!-- ═══════════════════════════════════════
+     PIPELINE NODES
+     5 nodes w=148, gap=18, total=812, margin=(980-812)/2=84
+     centers: 158, 306, 454, 602, 750
+     Node box: y=44, h=158 (inner text), sub-tag INSIDE box at bottom
+     Box total height = 170, so bottom = 44+170 = 214
+     Sub-tag: y=192, h=18, so it sits at y=192 inside box bottom (44+170=214, tag top=192 ok)
+     ═══════════════════════════════════════ -->
+
+<!-- NODE 1 — Data Ingestion (purple) -->
+<rect x="84" y="44" width="148" height="150" rx="5" fill="#EAE8F5" stroke="#8A80C8" stroke-width="1.1"></rect>
+<rect x="84" y="44" width="148" height="5" rx="5" fill="#8A80C8"></rect>
+<rect x="84" y="47" width="148" height="2" fill="#8A80C8"></rect>
+<text x="158" y="66" font-family="'IBM Plex Mono',monospace" font-size="7.5" font-weight="500" fill="#4A38A0" letter-spacing=".09em" text-anchor="middle" dominant-baseline="central">DATA INGESTION</text>
+<text x="158" y="88" font-size="12.5" font-weight="500" fill="#1A1050" text-anchor="middle" dominant-baseline="central">Structured</text>
+<text x="158" y="103" font-size="12.5" font-weight="500" fill="#1A1050" text-anchor="middle" dominant-baseline="central">Collection</text>
+<text x="158" y="123" font-size="10" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">Ops data unified</text>
+<text x="158" y="137" font-size="10" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">across sources into</text>
+<text x="158" y="151" font-size="10" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">a single model</text>
+<rect x="96" y="168" width="124" height="18" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"></rect>
+<text x="158" y="177" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">ingestion · normalisation</text>
+
+<!-- arrow 1→2 -->
+<line x1="232" y1="129" x2="250" y2="129" stroke="#9C7A60" stroke-width="1.3" marker-end="url(#mf)"></line>
+
+<!-- NODE 2 — Workflow Modeling (orange) -->
+<rect x="250" y="44" width="148" height="150" rx="5" fill="#FDF0E4" stroke="#D4956A" stroke-width="1.1"></rect>
+<rect x="250" y="44" width="148" height="5" rx="5" fill="#D4956A"></rect>
+<rect x="250" y="47" width="148" height="2" fill="#D4956A"></rect>
+<text x="324" y="61" font-family="'IBM Plex Mono',monospace" font-size="7" font-weight="500" fill="#7A4010" letter-spacing=".08em" text-anchor="middle" dominant-baseline="central">WORKFLOW MODELING</text>
+<text x="324" y="83" font-size="12.5" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Dependency</text>
+<text x="324" y="98" font-size="12.5" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Mapping</text>
+<text x="324" y="119" font-size="10" fill="#7A4020" text-anchor="middle" dominant-baseline="central">Baseline patterns,</text>
+<text x="324" y="133" font-size="10" fill="#7A4020" text-anchor="middle" dominant-baseline="central">load curves, cross-</text>
+<text x="324" y="147" font-size="10" fill="#7A4020" text-anchor="middle" dominant-baseline="central">team dependencies</text>
+<rect x="262" y="168" width="124" height="18" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"></rect>
+<text x="324" y="177" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">EWM · benchmarking</text>
+
+<!-- arrow 2→3 -->
+<line x1="398" y1="129" x2="416" y2="129" stroke="#9C7A60" stroke-width="1.3" marker-end="url(#mf)"></line>
+
+<!-- NODE 3 — Predictive Forecasting (teal) FEATURED -->
+<rect x="416" y="44" width="148" height="150" rx="5" fill="#E4F3ED" stroke="#4DAA82" stroke-width="1.4"></rect>
+<rect x="416" y="44" width="148" height="5" rx="5" fill="#4DAA82"></rect>
+<rect x="416" y="47" width="148" height="2" fill="#4DAA82"></rect>
+<text x="490" y="61" font-family="'IBM Plex Mono',monospace" font-size="7" font-weight="500" fill="#1A6644" letter-spacing=".09em" text-anchor="middle" dominant-baseline="central">PREDICTIVE FORECASTING</text>
+<text x="490" y="83" font-size="12.5" font-weight="500" fill="#0E3D28" text-anchor="middle" dominant-baseline="central">ML-Driven</text>
+<text x="490" y="98" font-size="12.5" font-weight="500" fill="#0E3D28" text-anchor="middle" dominant-baseline="central">Demand Model</text>
+<text x="490" y="119" font-size="10" fill="#2A6048" text-anchor="middle" dominant-baseline="central">Forward-looking workload</text>
+<text x="490" y="133" font-size="10" fill="#2A6048" text-anchor="middle" dominant-baseline="central">forecasts with calibrated</text>
+<text x="490" y="147" font-size="10" fill="#2A6048" text-anchor="middle" dominant-baseline="central">uncertainty bands</text>
+<rect x="428" y="168" width="124" height="18" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"></rect>
+<text x="490" y="177" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">EWM · uncertainty bands</text>
+
+<!-- arrow 3→4 -->
+<line x1="564" y1="129" x2="582" y2="129" stroke="#9C7A60" stroke-width="1.3" marker-end="url(#mf)"></line>
+
+<!-- NODE 4 — Risk Detection (orange) -->
+<rect x="582" y="44" width="148" height="150" rx="5" fill="#FDF0E4" stroke="#D4956A" stroke-width="1.1"></rect>
+<rect x="582" y="44" width="148" height="5" rx="5" fill="#D4956A"></rect>
+<rect x="582" y="47" width="148" height="2" fill="#D4956A"></rect>
+<text x="656" y="61" font-family="'IBM Plex Mono',monospace" font-size="7.5" font-weight="500" fill="#7A4010" letter-spacing=".09em" text-anchor="middle" dominant-baseline="central">RISK DETECTION</text>
+<text x="656" y="83" font-size="12.5" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Anomaly &amp;</text>
+<text x="656" y="98" font-size="12.5" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Risk Scoring</text>
+<text x="656" y="119" font-size="10" fill="#7A4020" text-anchor="middle" dominant-baseline="central">Burnout, bottlenecks,</text>
+<text x="656" y="133" font-size="10" fill="#7A4020" text-anchor="middle" dominant-baseline="central">fragmentation, and</text>
+<text x="656" y="147" font-size="10" fill="#7A4020" text-anchor="middle" dominant-baseline="central">coordination drift</text>
+<rect x="594" y="168" width="124" height="18" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"></rect>
+<text x="656" y="177" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">anomaly detection · alerts</text>
+
+<!-- arrow 4→5 -->
+<line x1="730" y1="129" x2="748" y2="129" stroke="#9C7A60" stroke-width="1.3" marker-end="url(#mf)"></line>
+
+<!-- NODE 5 — Resource Allocation (purple) -->
+<rect x="748" y="44" width="148" height="150" rx="5" fill="#EAE8F5" stroke="#8A80C8" stroke-width="1.1"></rect>
+<rect x="748" y="44" width="148" height="5" rx="5" fill="#8A80C8"></rect>
+<rect x="748" y="47" width="148" height="2" fill="#8A80C8"></rect>
+<text x="822" y="61" font-family="'IBM Plex Mono',monospace" font-size="7" font-weight="500" fill="#4A38A0" letter-spacing=".09em" text-anchor="middle" dominant-baseline="central">RESOURCE ALLOCATION</text>
+<text x="822" y="83" font-size="12.5" font-weight="500" fill="#1A1050" text-anchor="middle" dominant-baseline="central">Planning</text>
+<text x="822" y="98" font-size="12.5" font-weight="500" fill="#1A1050" text-anchor="middle" dominant-baseline="central">Dashboard</text>
+<text x="822" y="119" font-size="10" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">Role-specific views</text>
+<text x="822" y="133" font-size="10" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">for staffing and</text>
+<text x="822" y="147" font-size="10" fill="#5A50A0" text-anchor="middle" dominant-baseline="central">scheduling decisions</text>
+<rect x="760" y="168" width="124" height="18" rx="3" fill="#FAF6F0" stroke="#C4A882" stroke-width="0.75"></rect>
+<text x="822" y="177" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">dashboards · alerts</text>
+
+<!-- divider -->
+<line x1="40" y1="228" x2="940" y2="228" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"></line>
+
+<!-- ══ CONNECTOR LINES from nodes to panels ══ -->
+<path d="M490,194 L490,228 L215,228 L215,242" fill="none" stroke="#B09878" stroke-width="0.75" stroke-dasharray="3 3" marker-end="url(#md)"></path>
+<path d="M656,194 L656,228 L500,228 L500,242" fill="none" stroke="#B09878" stroke-width="0.75" stroke-dasharray="3 3" marker-end="url(#md)"></path>
+<path d="M822,194 L822,228 L780,228 L780,242" fill="none" stroke="#B09878" stroke-width="0.75" stroke-dasharray="3 3" marker-end="url(#md)"></path>
+
+<!-- ═══════════════════════════════════════════
+     PANEL A: FORECAST CHART
+     x=50, y=242, w=340, h=290
+     chart area: x_left=102, x_right=368, y_top=278, y_bottom=490
+     w=266, h=212; scale: 50hrs = 212px => 4.24px/hr
+     ═══════════════════════════════════════════ -->
+<rect x="50" y="242" width="340" height="296" rx="5" fill="#FDFCF8" stroke="#E0D0BC" stroke-width="0.75"></rect>
+<text x="220" y="260" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">FORECAST · TEAM WORKLOAD (HRS/WK)</text>
+<line x1="70" y1="268" x2="370" y2="268" stroke="#E0D0BC" stroke-width="0.5"></line>
+
+<!-- grid lines at 10,20,30,40,50 hrs
+     y = 490 - (val/50)*212
+     0→490, 10→447, 20→405, 30→363, 40→321, 50→278 -->
+<line x1="102" y1="490" x2="368" y2="490" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="102" y1="447" x2="368" y2="447" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="102" y1="405" x2="368" y2="405" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="102" y1="363" x2="368" y2="363" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="102" y1="321" x2="368" y2="321" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="102" y1="278" x2="368" y2="278" stroke="#EDE0CE" stroke-width="0.5"></line>
+
+<!-- y-axis labels -->
+<text x="97" y="490" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" text-anchor="end" dominant-baseline="central">0</text>
+<text x="97" y="447" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" text-anchor="end" dominant-baseline="central">10</text>
+<text x="97" y="405" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" text-anchor="end" dominant-baseline="central">20</text>
+<text x="97" y="363" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" text-anchor="end" dominant-baseline="central">30</text>
+<text x="97" y="321" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" text-anchor="end" dominant-baseline="central">40</text>
+<text x="97" y="278" font-family="'IBM Plex Mono',monospace" font-size="8" fill="#B09878" text-anchor="end" dominant-baseline="central">50</text>
+
+<!-- x-axis: W1..W10, spacing=266/9=29.6
+     W1=102, W2=132, W3=162, W4=191, W5=221, W6=251, W7=281, W8=310, W9=340, W10=368 -->
+<text x="102" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">W1</text>
+<text x="132" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">W2</text>
+<text x="162" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">W3</text>
+<text x="191" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">W4</text>
+<text x="221" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">W5</text>
+<text x="251" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">W6</text>
+<text x="281" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C4A882" text-anchor="middle">W7▶</text>
+<text x="310" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C4A882" text-anchor="middle">W8</text>
+<text x="340" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C4A882" text-anchor="middle">W9</text>
+<text x="368" y="503" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C4A882" text-anchor="middle">W10</text>
+
+<!-- actual data W1-W6: 32,30,35,38,36,34
+     y = 490-(val/50)*212
+     32→354, 30→363, 35→341, 38→328, 36→337, 34→346 -->
+<polyline points="102,354 132,363 162,341 191,328 221,337 251,346" fill="none" stroke="#4A38A0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></polyline>
+<circle cx="102" cy="354" r="2.5" fill="#4A38A0"></circle>
+<circle cx="132" cy="363" r="2.5" fill="#4A38A0"></circle>
+<circle cx="162" cy="341" r="2.5" fill="#4A38A0"></circle>
+<circle cx="191" cy="328" r="2.5" fill="#4A38A0"></circle>
+<circle cx="221" cy="337" r="2.5" fill="#4A38A0"></circle>
+<circle cx="251" cy="346" r="2.5" fill="#4A38A0"></circle>
+
+<!-- forecast W6-W10: 34,37,40,43,41
+     34→346, 37→333, 40→321, 43→308, 41→316 -->
+<polyline points="251,346 281,333 310,321 340,308 368,316" fill="none" stroke="#4DAA82" stroke-width="1.8" stroke-dasharray="5 3" stroke-linecap="round" stroke-linejoin="round"></polyline>
+
+<!-- uncertainty band ±6hrs
+     upper: 40→321, 43→308, 46→295, 49→282, 47→290
+     lower: 28→371, 31→358, 34→346, 37→333, 35→341 -->
+<polygon points="251,321 281,308 310,295 340,282 368,290 368,341 340,333 310,346 281,358 251,371" fill="#4DAA82" fill-opacity="0.12"></polygon>
+
+<!-- actual/forecast divider -->
+<line x1="251" y1="275" x2="251" y2="493" stroke="#C4A882" stroke-width="0.75" stroke-dasharray="3 3"></line>
+<text x="254" y="283" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#C4A882" dominant-baseline="central">forecast →</text>
+
+<!-- legend -->
+<line x1="70" y1="520" x2="86" y2="520" stroke="#4A38A0" stroke-width="1.8"></line>
+<circle cx="78" cy="520" r="2" fill="#4A38A0"></circle>
+<text x="90" y="520" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" dominant-baseline="central">actual</text>
+<line x1="130" y1="520" x2="146" y2="520" stroke="#4DAA82" stroke-width="1.8" stroke-dasharray="4 3"></line>
+<text x="150" y="520" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" dominant-baseline="central">forecast</text>
+<rect x="196" y="515" width="18" height="10" rx="1" fill="#4DAA82" fill-opacity="0.18" stroke="#4DAA82" stroke-width="0.5"></rect>
+<text x="218" y="520" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" dominant-baseline="central">uncertainty</text>
+
+<!-- ═══════════════════════════════════════════
+     PANEL B: RISK RADIAL
+     x=404, y=242, w=220, h=296
+     center: cx=514, cy=405, r=76
+     ═══════════════════════════════════════════ -->
+<rect x="404" y="242" width="220" height="296" rx="5" fill="#FDFCF8" stroke="#E0D0BC" stroke-width="0.75"></rect>
+<text x="514" y="260" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">RISK PROFILE · EMPLOYEE</text>
+<line x1="424" y1="268" x2="604" y2="268" stroke="#E0D0BC" stroke-width="0.5"></line>
+<text x="514" y="284" font-size="11" font-weight="500" fill="#3D1A0A" text-anchor="middle" dominant-baseline="central">Employee A · Senior IC</text>
+
+<!-- Radar: cx=514, cy=406, r=76
+     5 axes at 270°,342°,54°,126°,198°
+     Burnout (top):        514, 406-76=330
+     Fragmentation (TR):   514+76*cos(342°*π/180)=514+74.3=588, 406+76*sin(342°*π/180)=406-23.5=382 → ~588,383
+     Bottleneck (BR):      514+76*cos(54°*π/180)=514+44.7=559, 406+76*sin(54°*π/180)=406+61.5=468 → ~559,468
+     Overallocation (BL):  514+76*cos(126°*π/180)=514-44.7=469, 406+76*sin(126°*π/180)=406+61.5=468 → ~469,468
+     Drift (TL):           514+76*cos(198°*π/180)=514-72.3=442, 406+76*sin(198°*π/180)=406-23.5=383 → ~442,383 -->
+
+<!-- outer grid -->
+<polygon points="514,330 588,383 559,468 469,468 442,383" fill="none" stroke="#E0D0BC" stroke-width="0.75"></polygon>
+<!-- mid grid (0.6r) -->
+<polygon points="514,360 560,405 542,444 486,444 468,405" fill="none" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 3"></polygon>
+<!-- inner grid (0.3r) -->
+<polygon points="514,383 546,428 531,422 497,422 490,428" fill="none" stroke="#E0D0BC" stroke-width="0.4" stroke-dasharray="1 3"></polygon>
+<!-- axes -->
+<line x1="514" y1="406" x2="514" y2="330" stroke="#E0D0BC" stroke-width="0.5"></line>
+<line x1="514" y1="406" x2="588" y2="383" stroke="#E0D0BC" stroke-width="0.5"></line>
+<line x1="514" y1="406" x2="559" y2="468" stroke="#E0D0BC" stroke-width="0.5"></line>
+<line x1="514" y1="406" x2="469" y2="468" stroke="#E0D0BC" stroke-width="0.5"></line>
+<line x1="514" y1="406" x2="442" y2="383" stroke="#E0D0BC" stroke-width="0.5"></line>
+
+<!-- Data scores: Burnout=0.72, Frag=0.40, Bottleneck=0.55, Overalloc=0.80, Drift=0.30
+     pt = center + score*(axis_end - center)
+     Burnout:       514+0.72*(514-514)=514,   406+0.72*(330-406)=351
+     Frag:          514+0.40*(588-514)=544,   406+0.40*(383-406)=397
+     Bottleneck:    514+0.55*(559-514)=539,   406+0.55*(468-406)=440
+     Overalloc:     514+0.80*(469-514)=478,   406+0.80*(468-406)=456
+     Drift:         514+0.30*(442-514)=492,   406+0.30*(383-406)=399 -->
+<polygon points="514,351 544,397 539,440 478,456 492,399" fill="#D4956A" fill-opacity="0.22" stroke="#D4956A" stroke-width="1.4"></polygon>
+<circle cx="514" cy="351" r="3" fill="#D4956A"></circle>
+<circle cx="544" cy="397" r="3" fill="#D4956A"></circle>
+<circle cx="539" cy="440" r="3" fill="#D4956A"></circle>
+<circle cx="478" cy="456" r="3" fill="#C05030"></circle>
+<circle cx="492" cy="399" r="3" fill="#D4956A"></circle>
+
+<!-- axis labels — placed outside the outer polygon with clearance -->
+<text x="514" y="322" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A4010" text-anchor="middle" dominant-baseline="central">Burnout</text>
+<text x="596" y="381" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="start" dominant-baseline="central">Frag.</text>
+<text x="566" y="477" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="start" dominant-baseline="central">Bottleneck</text>
+<text x="461" y="477" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C05030" text-anchor="end" dominant-baseline="central">Overalloc.</text>
+<text x="435" y="381" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="end" dominant-baseline="central">Drift</text>
+
+<!-- widened score box -->
+<rect x="414" y="492" width="200" height="30" rx="3" fill="#FAF6F0" stroke="#E0D0BC" stroke-width="0.5"></rect>
+<text x="514" y="502" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" text-anchor="middle" dominant-baseline="central">risk score: 0.55 avg · overalloc. flagged</text>
+<text x="514" y="516" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C05030" text-anchor="middle" dominant-baseline="central">↑ intervention recommended</text>
+
+<!-- ═══════════════════════════════════════════
+     PANEL C: WORKLOAD BAR CHART
+     x=638, y=242, w=302, h=296
+     chart area: x0=706, x1=918, y_top=278, y_bottom=490
+     w=212, 55hrs → 3.85px/hr
+     5 employees, row spacing=40, start y=298
+     each row: actual bar h=10, forecast bar h=10, gap=4
+     ═══════════════════════════════════════════ -->
+<rect x="638" y="242" width="302" height="296" rx="5" fill="#FDFCF8" stroke="#E0D0BC" stroke-width="0.75"></rect>
+<text x="789" y="260" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">WORKLOAD DISTRIBUTION · TEAM (HRS)</text>
+<line x1="658" y1="268" x2="918" y2="268" stroke="#E0D0BC" stroke-width="0.5"></line>
+
+<!-- vertical grid at 10,20,30,40,50 hrs: x = 706 + val*3.85
+     10→745, 20→783, 30→822, 40→860, 50→899 -->
+<line x1="745" y1="274" x2="745" y2="492" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="783" y1="274" x2="783" y2="492" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="822" y1="274" x2="822" y2="492" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="860" y1="274" x2="860" y2="492" stroke="#EDE0CE" stroke-width="0.5"></line>
+<line x1="899" y1="274" x2="899" y2="492" stroke="#EDE0CE" stroke-width="0.5"></line>
+
+<!-- x axis labels -->
+<text x="745" y="502" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">10</text>
+<text x="783" y="502" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">20</text>
+<text x="822" y="502" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">30</text>
+<text x="860" y="502" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">40</text>
+<text x="899" y="502" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" text-anchor="middle">50</text>
+<text x="789" y="513" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#B09878" text-anchor="middle">hrs/wk</text>
+
+<!-- Rows: name_x=703 (right-aligned), actual_y = 285+i*42, forecast_y = actual_y+13
+     bar_x0=706, width = val*3.85
+     Employee A: actual=34(131), fcst=41(158)
+     Employee B: actual=28(108), fcst=28(108)
+     Employee C: actual=45(173) FLAGGED, fcst=48(185)
+     Employee D: actual=22(85), fcst=30(116)
+     Employee E: actual=37(142), fcst=35(135) -->
+
+<!-- Row 0: Employee A -->
+<text x="703" y="293" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#3D2060" text-anchor="end" dominant-baseline="central">Emp. A</text>
+<rect x="706" y="286" width="131" height="10" rx="2" fill="#8A80C8" fill-opacity="0.80"></rect>
+<rect x="706" y="298" width="158" height="10" rx="2" fill="#4DAA82" fill-opacity="0.55"></rect>
+<text x="840" y="291" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#3D2060" dominant-baseline="central">34</text>
+<text x="867" y="303" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#1A6644" dominant-baseline="central">41 ↑</text>
+
+<!-- Row 1: Employee B -->
+<text x="703" y="335" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#3D2060" text-anchor="end" dominant-baseline="central">Emp. B</text>
+<rect x="706" y="328" width="108" height="10" rx="2" fill="#8A80C8" fill-opacity="0.80"></rect>
+<rect x="706" y="340" width="108" height="10" rx="2" fill="#4DAA82" fill-opacity="0.55"></rect>
+<text x="817" y="333" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#3D2060" dominant-baseline="central">28</text>
+<text x="817" y="345" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#1A6644" dominant-baseline="central">28 —</text>
+
+<!-- Row 2: Employee C (flagged) -->
+<text x="703" y="377" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C05030" text-anchor="end" dominant-baseline="central">Emp. C !</text>
+<rect x="706" y="370" width="173" height="10" rx="2" fill="#D4956A" fill-opacity="0.90"></rect>
+<rect x="706" y="382" width="185" height="10" rx="2" fill="#C05030" fill-opacity="0.55"></rect>
+<text x="882" y="375" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#C05030" dominant-baseline="central">45 !</text>
+<text x="894" y="387" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#C05030" dominant-baseline="central">48 ↑</text>
+
+<!-- Row 3: Employee D -->
+<text x="703" y="419" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#3D2060" text-anchor="end" dominant-baseline="central">Emp. D</text>
+<rect x="706" y="412" width="85" height="10" rx="2" fill="#8A80C8" fill-opacity="0.80"></rect>
+<rect x="706" y="424" width="116" height="10" rx="2" fill="#4DAA82" fill-opacity="0.55"></rect>
+<text x="794" y="417" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#3D2060" dominant-baseline="central">22</text>
+<text x="825" y="429" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#1A6644" dominant-baseline="central">30 ↑</text>
+
+<!-- Row 4: Employee E -->
+<text x="703" y="461" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#3D2060" text-anchor="end" dominant-baseline="central">Emp. E</text>
+<rect x="706" y="454" width="142" height="10" rx="2" fill="#8A80C8" fill-opacity="0.80"></rect>
+<rect x="706" y="466" width="135" height="10" rx="2" fill="#4DAA82" fill-opacity="0.55"></rect>
+<text x="851" y="459" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#3D2060" dominant-baseline="central">37</text>
+<text x="844" y="471" font-family="'IBM Plex Mono',monospace" font-size="7" fill="#1A6644" dominant-baseline="central">35 ↓</text>
+
+<!-- legend -->
+<rect x="658" y="520" width="9" height="9" rx="1" fill="#8A80C8" fill-opacity="0.80"></rect>
+<text x="671" y="525" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" dominant-baseline="central">actual</text>
+<rect x="714" y="520" width="9" height="9" rx="1" fill="#4DAA82" fill-opacity="0.55"></rect>
+<text x="727" y="525" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#7A5C4A" dominant-baseline="central">ml forecast</text>
+<rect x="804" y="520" width="9" height="9" rx="1" fill="#D4956A" fill-opacity="0.90"></rect>
+<text x="817" y="525" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#C05030" dominant-baseline="central">flagged</text>
+
+<!-- bottom rule -->
+<line x1="40" y1="544" x2="940" y2="544" stroke="#E0D0BC" stroke-width="0.5" stroke-dasharray="2 6"></line>
+<text x="490" y="553" font-family="'IBM Plex Mono',monospace" font-size="7.5" fill="#B09878" letter-spacing=".1em" text-anchor="middle" dominant-baseline="central">DATA INGESTION · WORKFLOW MODELING · PREDICTIVE FORECASTING · RISK DETECTION · RESOURCE ALLOCATION</text>
+</svg>
