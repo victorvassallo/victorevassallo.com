@@ -40,6 +40,181 @@ body {
   overflow-x: hidden;
 }
 /* ============================================================
+   HERO CAROUSEL
+============================================================ */
+.hc-outer { width: 100%; }
+.hc-track-wrap { overflow: hidden; border-radius: 4px; }
+.hc-track { display: flex; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.hc-slide { min-width: 100%; height: 520px; position: relative; overflow: hidden; flex-shrink: 0; }
+.hc-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 4px; }
+.hc-dots { display: flex; gap: 8px; }
+.hc-dot { width: 24px; height: 2px; background: rgba(196,168,130,0.3); cursor: pointer; transition: background 0.3s, width 0.3s; }
+.hc-dot.active { background: var(--taupe); width: 40px; }
+.hc-arrows { display: flex; gap: 10px; }
+.hc-arrow-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(196,168,130,0.3); background: transparent; color: var(--taupe); font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.hc-arrow-btn:hover { background: rgba(196,168,130,0.1); border-color: var(--taupe); }
+.hc-slide-title { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 500; color: var(--beige-warm); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hc-slide-type { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(196,168,130,0.45); white-space: nowrap; }
+/* Slide 1 — BOOM */
+.hc-slide-boom { background: var(--beige-light); }
+.hc-slide-boom::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(100,65,45,0.22) 1px, transparent 1px), linear-gradient(90deg, rgba(100,65,45,0.22) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+.boom-chrome { position: absolute; inset: 20px; display: flex; flex-direction: column; border: 1px solid rgba(196,168,130,0.2); border-radius: 6px; overflow: hidden; background: var(--brown-deep); }
+.boom-topbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid rgba(196,168,130,0.15); background: var(--brown-deep); flex-shrink: 0; }
+.boom-topbar-left { display: flex; align-items: center; gap: 10px; }
+.boom-pulse { width: 7px; height: 7px; border-radius: 50%; background: #5DCAA5; animation: boom-blink 2s ease-in-out infinite; }
+@keyframes boom-blink { 0%,100% { opacity:1; box-shadow: 0 0 0 0 rgba(93,202,165,0.4); } 50% { opacity:0.7; box-shadow: 0 0 0 5px rgba(93,202,165,0); } }
+.boom-topbar-title { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); }
+.boom-badge { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border: 1px solid rgba(93,202,165,0.4); color: #5DCAA5; border-radius: 999px; }
+.boom-body { display: grid; grid-template-columns: 180px 1fr; flex: 1; overflow: hidden; }
+.boom-sidebar { border-right: 1px solid rgba(196,168,130,0.12); padding: 12px 0; overflow-y: auto; background: rgba(30,18,18,0.5); }
+.boom-sidebar-label { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(196,168,130,0.4); padding: 0 12px 8px; }
+.boom-opp { padding: 8px 12px; border-bottom: 1px solid rgba(196,168,130,0.07); cursor: default; }
+.boom-opp.active { background: rgba(196,168,130,0.08); border-left: 2px solid var(--taupe); }
+.boom-opp-title { font-size: 0.68rem; font-weight: 500; color: var(--beige-warm); margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.boom-opp-meta { display: flex; align-items: center; justify-content: space-between; }
+.boom-opp-agency { font-family: 'DM Mono', monospace; font-size: 0.52rem; color: rgba(196,168,130,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+.boom-score { font-family: 'DM Mono', monospace; font-size: 0.58rem; font-weight: 500; padding: 1px 5px; border-radius: 2px; }
+.score-hi { background: rgba(93,202,165,0.15); color: #5DCAA5; }
+.score-mid { background: rgba(239,159,39,0.15); color: #EF9F27; }
+.score-lo { background: rgba(208,88,80,0.15); color: #e87170; }
+.boom-main { padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.boom-main-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.boom-main-title { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 500; color: var(--beige-warm); line-height: 1.3; }
+.boom-action-row { display: flex; gap: 5px; flex-shrink: 0; }
+.boom-action { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; border: 1px solid rgba(196,168,130,0.3); color: var(--taupe); background: rgba(196,168,130,0.06); cursor: default; border-radius: 2px; }
+.boom-scoring-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; }
+.boom-score-card { background: rgba(46,31,31,0.6); border: 1px solid rgba(196,168,130,0.12); padding: 8px 10px; border-radius: 3px; }
+.boom-score-card-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(196,168,130,0.5); margin-bottom: 4px; }
+.boom-score-bar-wrap { height: 3px; background: rgba(196,168,130,0.1); border-radius: 999px; overflow: hidden; margin-bottom: 4px; }
+.boom-score-bar { height: 100%; border-radius: 999px; }
+.bar-hi { background: #5DCAA5; width: 87%; }
+.bar-mid { background: #EF9F27; width: 64%; }
+.bar-lo { background: var(--taupe); width: 91%; }
+.boom-score-val { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--taupe); text-align: right; }
+.boom-reasoning { background: rgba(46,31,31,0.5); border: 1px solid rgba(196,168,130,0.1); border-left: 2px solid var(--taupe); padding: 9px 10px; border-radius: 0 3px 3px 0; flex: 1; overflow: hidden; }
+.boom-reasoning-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(196,168,130,0.45); margin-bottom: 5px; }
+.boom-reasoning-text { font-size: 0.73rem; color: rgba(237,227,213,0.65); line-height: 1.55; }
+.boom-reasoning-text em { color: var(--taupe); font-style: normal; }
+.boom-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+.boom-tag { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 6px; border: 1px solid rgba(196,168,130,0.22); color: rgba(196,168,130,0.6); border-radius: 1px; }
+.boom-footer { border-top: 1px solid rgba(196,168,130,0.1); padding: 7px 14px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; background: rgba(30,18,18,0.5); }
+.boom-footer-stat { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.08em; color: rgba(196,168,130,0.4); }
+.boom-footer-stat span { color: var(--taupe); }
+/* Slide 2 — RAG */
+.hc-slide-rag { background: var(--off-white); }
+.hc-slide-rag::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 85% 15%, rgba(156,107,78,0.1), transparent 50%), radial-gradient(circle at 10% 80%, rgba(196,168,130,0.12), transparent 40%); pointer-events: none; }
+.rag-chrome { position: absolute; inset: 20px; display: flex; flex-direction: column; border: 1px solid var(--border-strong); border-radius: 6px; overflow: hidden; background: var(--off-white); box-shadow: 0 12px 40px rgba(46,31,31,0.12); }
+.rag-topbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--cream); flex-shrink: 0; }
+.rag-mode-pills { display: flex; gap: 4px; }
+.rag-pill { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-muted); cursor: default; }
+.rag-pill.active { background: var(--brown-deep); color: var(--beige-warm); border-color: var(--brown-deep); }
+.rag-title { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brown-light); }
+.rag-body { flex: 1; overflow: hidden; display: flex; flex-direction: column; padding: 14px; gap: 12px; }
+.rag-msg { display: flex; gap: 8px; align-items: flex-start; }
+.rag-msg.user { flex-direction: row-reverse; }
+.rag-avatar { width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 0.5rem; font-weight: 500; flex-shrink: 0; }
+.rag-avatar.sys { background: var(--brown-deep); color: var(--taupe); }
+.rag-avatar.usr { background: var(--beige-warm); color: var(--brown-warm); }
+.rag-bubble { max-width: 75%; padding: 9px 12px; border-radius: 3px; line-height: 1.5; }
+.rag-bubble.sys { background: var(--beige-light); border: 1px solid var(--border); font-size: 0.73rem; color: var(--text-mid); }
+.rag-bubble.usr { background: var(--brown-deep); color: rgba(237,227,213,0.85); font-size: 0.73rem; }
+.rag-cite { display: inline-flex; align-items: center; gap: 4px; font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 5px; border: 1px solid rgba(100,65,45,0.2); background: rgba(100,65,45,0.05); color: var(--brown-light); border-radius: 2px; margin: 0 2px; vertical-align: middle; }
+.rag-sources { background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 8px 10px; display: flex; flex-direction: column; gap: 5px; }
+.rag-sources-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.rag-source-item { display: flex; align-items: center; gap: 7px; }
+.rag-source-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--brown-light); flex-shrink: 0; }
+.rag-source-text { font-size: 0.68rem; color: var(--brown-warm); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: rgba(107,69,53,0.3); }
+.rag-source-score { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.52rem; color: var(--text-muted); }
+.rag-input-row { border-top: 1px solid var(--border); padding: 9px 14px; display: flex; align-items: center; gap: 10px; background: var(--cream); flex-shrink: 0; }
+.rag-input-fake { flex: 1; height: 30px; border: 1px solid var(--border-strong); border-radius: 2px; padding: 0 10px; display: flex; align-items: center; font-size: 0.72rem; color: var(--text-muted); background: var(--off-white); }
+.rag-send { width: 30px; height: 30px; border-radius: 2px; background: var(--brown-deep); display: flex; align-items: center; justify-content: center; color: var(--taupe); font-size: 0.72rem; cursor: default; }
+/* Slide 3 — Qualitative DB */
+.hc-slide-qual { background: var(--cream); }
+.hc-slide-qual::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(156,107,78,0.12) 1.5px, transparent 1.5px); background-size: 22px 22px; pointer-events: none; }
+.qual-chrome { position: absolute; inset: 20px; display: flex; flex-direction: column; border: 1px solid var(--border-strong); border-radius: 6px; overflow: hidden; background: var(--off-white); box-shadow: 0 12px 36px rgba(46,31,31,0.1); }
+.qual-topbar { padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--brown-deep); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.qual-topbar-title { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); }
+.qual-meta-pills { display: flex; gap: 5px; }
+.qual-meta-pill { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 6px; border: 1px solid rgba(196,168,130,0.3); color: rgba(196,168,130,0.6); border-radius: 999px; }
+.qual-search-row { padding: 10px 14px; border-bottom: 1px solid var(--border); display: flex; gap: 7px; align-items: center; background: var(--cream); flex-shrink: 0; }
+.qual-search-box { flex: 1; border: 1px solid var(--border-strong); border-radius: 2px; padding: 6px 10px; font-size: 0.73rem; color: var(--text-dark); background: var(--off-white); display: flex; align-items: center; justify-content: space-between; }
+.qual-search-query { color: var(--brown-deep); font-weight: 500; }
+.qual-search-hint { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.qual-filters { display: flex; gap: 5px; }
+.qual-filter { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 7px; border: 1px solid var(--border-strong); color: var(--text-muted); border-radius: 2px; cursor: default; }
+.qual-filter.active { background: var(--brown-deep); color: var(--beige-warm); border-color: var(--brown-deep); }
+.qual-body { flex: 1; display: grid; grid-template-columns: 1fr 220px; overflow: hidden; }
+.qual-results { padding: 10px 14px; display: flex; flex-direction: column; gap: 7px; border-right: 1px solid var(--border); overflow-y: auto; }
+.qual-result-item { padding: 9px 11px; border: 1px solid var(--border); border-radius: 3px; cursor: default; }
+.qual-result-item.active { border-color: var(--taupe); background: var(--cream); }
+.qual-result-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.qual-result-label { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown-light); }
+.qual-sim { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--text-muted); }
+.qual-sim span { color: var(--brown-warm); font-weight: 500; }
+.qual-result-text { font-size: 0.72rem; color: var(--text-mid); line-height: 1.5; }
+.qual-result-text em { color: var(--brown-warm); font-style: normal; font-weight: 500; }
+.qual-result-footer { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+.qual-entity { font-family: 'DM Mono', monospace; font-size: 0.48rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 5px; border-radius: 1px; background: rgba(100,65,45,0.07); border: 1px solid var(--border); color: var(--brown-light); }
+.qual-panel { padding: 12px; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; background: var(--cream); }
+.qual-panel-section { display: flex; flex-direction: column; gap: 5px; }
+.qual-panel-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); }
+.qual-theme-row { display: flex; flex-direction: column; gap: 4px; }
+.qual-theme { display: flex; align-items: center; gap: 7px; }
+.qual-theme-label { font-size: 0.68rem; color: var(--text-mid); flex: 1; }
+.qual-theme-bar-wrap { width: 70px; height: 3px; background: rgba(100,65,45,0.1); border-radius: 999px; overflow: hidden; }
+.qual-theme-bar { height: 100%; border-radius: 999px; background: var(--brown-warm); }
+.qual-source-list { display: flex; flex-direction: column; gap: 3px; }
+.qual-source-row { display: flex; align-items: center; gap: 6px; }
+.qual-source-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+.qual-source-name { font-size: 0.65rem; color: var(--text-mid); }
+.qual-source-count { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--text-muted); }
+/* Slide 4 — Ops Dashboard */
+.hc-slide-ops { background: var(--beige-light); }
+.hc-slide-ops::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(156,107,78,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(156,107,78,0.08) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; }
+.ops-chrome { position: absolute; inset: 20px; display: flex; flex-direction: column; border: 1px solid var(--border-strong); border-radius: 6px; overflow: hidden; background: var(--off-white); box-shadow: 0 12px 36px rgba(46,31,31,0.1); }
+.ops-topbar { padding: 8px 14px; border-bottom: 1px solid var(--border); background: var(--off-white); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+.ops-topbar-title { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brown-light); }
+.ops-status-row { display: flex; gap: 8px; }
+.ops-status { display: flex; align-items: center; gap: 4px; font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.ops-status-dot { width: 6px; height: 6px; border-radius: 50%; }
+.dot-green { background: #5DCAA5; }
+.dot-amber { background: #EF9F27; }
+.dot-red { background: #e87170; }
+.ops-body { flex: 1; display: grid; grid-template-rows: auto 1fr; overflow: hidden; }
+.ops-metric-row { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.ops-metric { padding: 10px 12px; border-right: 1px solid var(--border); }
+.ops-metric:last-child { border-right: none; }
+.ops-metric-label { font-family: 'DM Mono', monospace; font-size: 0.48rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.ops-metric-value { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--brown-deep); line-height: 1; margin-bottom: 2px; }
+.ops-metric-delta { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.06em; }
+.delta-up { color: #5DCAA5; }
+.delta-down { color: #e87170; }
+.delta-warn { color: #EF9F27; }
+.ops-lower { display: grid; grid-template-columns: 1fr 180px; overflow: hidden; }
+.ops-timeline { padding: 10px 12px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 7px; overflow-y: auto; }
+.ops-timeline-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1px; }
+.ops-workstream { display: flex; flex-direction: column; gap: 3px; }
+.ops-ws-header { display: flex; align-items: center; justify-content: space-between; }
+.ops-ws-name { font-size: 0.68rem; font-weight: 500; color: var(--text-dark); }
+.ops-ws-days { font-family: 'DM Mono', monospace; font-size: 0.52rem; color: var(--text-muted); }
+.ops-progress-wrap { height: 5px; background: rgba(100,65,45,0.1); border-radius: 999px; overflow: hidden; }
+.ops-progress-bar { height: 100%; border-radius: 999px; }
+.progress-green { background: #5DCAA5; }
+.progress-amber { background: #EF9F27; }
+.progress-brown { background: var(--brown-light); }
+.ops-risk-flag { display: inline-flex; align-items: center; gap: 4px; font-family: 'DM Mono', monospace; font-size: 0.48rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 1px 5px; border-radius: 1px; background: rgba(239,159,39,0.12); border: 1px solid rgba(239,159,39,0.3); color: #d4890a; width: fit-content; }
+.ops-right-panel { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; background: var(--cream); overflow-y: auto; }
+.ops-right-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.ops-resource-row { display: flex; flex-direction: column; gap: 4px; }
+.ops-resource { display: flex; align-items: center; gap: 7px; }
+.ops-resource-name { font-size: 0.65rem; color: var(--text-mid); width: 52px; flex-shrink: 0; }
+.ops-cap-wrap { flex: 1; height: 4px; background: rgba(100,65,45,0.1); border-radius: 999px; overflow: hidden; }
+.ops-cap-bar { height: 100%; border-radius: 999px; }
+.ops-cap-pct { font-family: 'DM Mono', monospace; font-size: 0.5rem; color: var(--text-muted); width: 26px; text-align: right; }
+.ops-alert { background: rgba(239,159,39,0.08); border: 1px solid rgba(239,159,39,0.25); border-left: 2px solid #EF9F27; padding: 7px 9px; border-radius: 0 3px 3px 0; }
+.ops-alert-title { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: #d4890a; margin-bottom: 3px; }
+.ops-alert-text { font-size: 0.65rem; color: var(--text-mid); line-height: 1.45; }
+/* ============================================================
    PAGES
 ============================================================ */
 .page { display: none; min-height: 100vh; }
@@ -245,11 +420,16 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 120px 48px 80px;
-  max-width: 1160px;
+  padding: 120px 24px 80px;
+  max-width: 1500px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 48px;
 }
+.hero-left { flex: 2 1 0; min-width: 0; }
+.hero-right { flex: 3 1 0; min-width: 0; opacity: 0; animation: fadeIn 1s 0.9s var(--transition) forwards; }
 .hero-eyebrow {
   font-family: 'DM Mono', monospace;
   font-size: 0.75rem;
@@ -1465,7 +1645,8 @@ footer {
     gap: 16px;
   }
   .nav-hamburger { display: flex; }
-  .hero-content { padding: 100px 24px 80px; }
+  .hero-content { padding: 100px 24px 60px; flex-direction: column; gap: 40px; }
+  .hero-right { width: 100%; }
   .build-grid { grid-template-columns: 1fr; }
   #page-home .build-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -1530,19 +1711,233 @@ footer {
       </svg>
     </div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Data Scientist & AI Systems Builder</div>
-      <h1 class="hero-name">Victor<br><em>Vassallo</em></h1>
-      <div class="hero-title">Turning complex information into decisions.</div>
-      <p class="hero-sub">I design systems that transform complex data, documents, and policy contexts into actionable decisions — bridging technical rigor with real-world impact.</p>
-      <div class="hero-actions">
-        <button class="btn btn-primary" onclick="showPage('projects')">View My Systems →</button>
-        <button class="btn btn-outline" style="color:var(--taupe);border-color:rgba(196,168,130,0.4);" onclick="showPage('contact')">Get in Touch</button>
+      <div class="hero-left">
+        <div class="hero-eyebrow">Data Scientist & AI Systems Builder</div>
+        <h1 class="hero-name">Victor<br><em>Vassallo</em></h1>
+        <div class="hero-title">Turning complex information into decisions.</div>
+        <p class="hero-sub">I design systems that transform complex data, documents, and policy contexts into actionable decisions — bridging technical rigor with real-world impact.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="showPage('projects')">View My Systems →</button>
+          <button class="btn btn-outline" style="color:var(--taupe);border-color:rgba(196,168,130,0.4);" onclick="showPage('contact')">Get in Touch</button>
+        </div>
+        <div class="hero-metrics">
+          <div class="hero-chip">Pipelines in Production</div>
+          <div class="hero-chip">NLP + Econometrics</div>
+          <div class="hero-chip">Policy-Grade Decision Support</div>
+        </div>
       </div>
-      <div class="hero-metrics">
-        <div class="hero-chip">Pipelines in Production</div>
-        <div class="hero-chip">NLP + Econometrics</div>
-        <div class="hero-chip">Policy-Grade Decision Support</div>
-      </div>
+      <div class="hero-right">
+        <div class="hc-outer">
+          <div class="hc-track-wrap">
+            <div class="hc-track" id="hc-track">
+              <!-- SLIDE 1: BOOM -->
+              <div class="hc-slide hc-slide-boom">
+                <div class="boom-chrome">
+                  <div class="boom-topbar">
+                    <div class="boom-topbar-left">
+                      <div class="boom-pulse"></div>
+                      <span class="boom-topbar-title">BOOM — Opportunity Intelligence</span>
+                    </div>
+                    <span class="boom-badge">Agent Active</span>
+                  </div>
+                  <div class="boom-body">
+                    <div class="boom-sidebar">
+                      <div class="boom-sidebar-label">Opportunity Queue</div>
+                      <div class="boom-opp active">
+                        <div class="boom-opp-title">IT Modernization — DOC</div>
+                        <div class="boom-opp-meta"><span class="boom-opp-agency">Federal</span><span class="boom-score score-hi">92</span></div>
+                      </div>
+                      <div class="boom-opp">
+                        <div class="boom-opp-title">Data Analytics Platform — HHS</div>
+                        <div class="boom-opp-meta"><span class="boom-opp-agency">Federal</span><span class="boom-score score-hi">88</span></div>
+                      </div>
+                      <div class="boom-opp">
+                        <div class="boom-opp-title">Broadband Planning — NTIA</div>
+                        <div class="boom-opp-meta"><span class="boom-opp-agency">Grant</span><span class="boom-score score-mid">61</span></div>
+                      </div>
+                      <div class="boom-opp">
+                        <div class="boom-opp-title">GIS Mapping Services — DOT</div>
+                        <div class="boom-opp-meta"><span class="boom-opp-agency">Federal</span><span class="boom-score score-mid">58</span></div>
+                      </div>
+                      <div class="boom-opp">
+                        <div class="boom-opp-title">Research Support — NSF</div>
+                        <div class="boom-opp-meta"><span class="boom-opp-agency">Grant</span><span class="boom-score score-lo">34</span></div>
+                      </div>
+                    </div>
+                    <div class="boom-main">
+                      <div class="boom-main-header">
+                        <div class="boom-main-title">IT Modernization Support & Advisory Services — Dept. of Commerce</div>
+                        <div class="boom-action-row"><span class="boom-action">Route →</span><span class="boom-action">Summarize</span></div>
+                      </div>
+                      <div class="boom-scoring-row">
+                        <div class="boom-score-card"><div class="boom-score-card-label">Sector Fit</div><div class="boom-score-bar-wrap"><div class="boom-score-bar bar-hi"></div></div><div class="boom-score-val">0.87</div></div>
+                        <div class="boom-score-card"><div class="boom-score-card-label">Capability Match</div><div class="boom-score-bar-wrap"><div class="boom-score-bar bar-mid"></div></div><div class="boom-score-val">0.64</div></div>
+                        <div class="boom-score-card"><div class="boom-score-card-label">Strategic Align</div><div class="boom-score-bar-wrap"><div class="boom-score-bar bar-lo"></div></div><div class="boom-score-val">0.91</div></div>
+                      </div>
+                      <div class="boom-reasoning">
+                        <div class="boom-reasoning-label">Agent Reasoning</div>
+                        <div class="boom-reasoning-text">Strong alignment with <em>federal IT modernization</em> portfolio. Prior DOC engagement and <em>data platform</em> work increases win probability. Recommending <em>BD Team A</em> routing with 48hr response window.</div>
+                        <div class="boom-tags" style="margin-top:6px;"><span class="boom-tag">Agentic Workflow</span><span class="boom-tag">Proprietary Scoring</span><span class="boom-tag">Auto-Routed</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="boom-footer">
+                    <span class="boom-footer-stat">Queue: <span>5 active</span></span>
+                    <span class="boom-footer-stat">Processed: <span>23</span></span>
+                    <span class="boom-footer-stat">Avg score: <span>74.2</span></span>
+                    <span class="boom-footer-stat">Sync: <span>4 min ago</span></span>
+                  </div>
+                </div>
+              </div>
+              <!-- SLIDE 2: RAG -->
+              <div class="hc-slide hc-slide-rag">
+                <div class="rag-chrome">
+                  <div class="rag-topbar">
+                    <span class="rag-title">Decision Intelligence RAG</span>
+                    <div class="rag-mode-pills"><span class="rag-pill">Corpus</span><span class="rag-pill active">Hybrid</span><span class="rag-pill">Doc-Only</span></div>
+                  </div>
+                  <div class="rag-body">
+                    <div class="rag-msg user">
+                      <div class="rag-avatar usr">VV</div>
+                      <div class="rag-bubble usr">What has our team previously written about broadband equity measurement frameworks?</div>
+                    </div>
+                    <div class="rag-msg">
+                      <div class="rag-avatar sys">AI</div>
+                      <div style="display:flex;flex-direction:column;gap:7px;max-width:78%;">
+                        <div class="rag-bubble sys">Based on <span class="rag-cite">4 sources</span> retrieved from your corpus, your team has developed three distinct measurement frameworks for broadband equity. First, a <strong>digital equity index</strong> combining FCC availability data with census tract-level adoption indicators and affordability benchmarks <span class="rag-cite">src_02</span>. Second, a <strong>provider-level scoring</strong> methodology applied during the NTIA grant analysis, weighting deployment commitments against historical underservice <span class="rag-cite">src_07</span>. Third, a <strong>mixed-methods rubric</strong> that integrates qualitative community survey inputs with quantitative coverage data to produce a composite access score <span class="rag-cite">src_11</span>. The equity index is your most-cited internal artifact, referenced in 6 subsequent deliverables.</div>
+                        <div class="rag-sources">
+                          <div class="rag-sources-label">Retrieved Sources</div>
+                          <div class="rag-source-item"><div class="rag-source-dot"></div><span class="rag-source-text">broadband_equity_index_v3.pdf</span><span class="rag-source-score">sim 0.94</span></div>
+                          <div class="rag-source-item"><div class="rag-source-dot"></div><span class="rag-source-text">ntia_grant_analysis_final.docx</span><span class="rag-source-score">sim 0.89</span></div>
+                          <div class="rag-source-item"><div class="rag-source-dot"></div><span class="rag-source-text">mixed_methods_framework_2024.pdf</span><span class="rag-source-score">sim 0.82</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rag-input-row">
+                    <div class="rag-input-fake">Ask a question about your documents...</div>
+                    <div class="rag-send">→</div>
+                  </div>
+                </div>
+              </div>
+              <!-- SLIDE 3: Qualitative DB -->
+              <div class="hc-slide hc-slide-qual">
+                <div class="qual-chrome">
+                  <div class="qual-topbar">
+                    <span class="qual-topbar-title">Qualitative Research Database</span>
+                    <div class="qual-meta-pills"><span class="qual-meta-pill">3 Agencies</span><span class="qual-meta-pill">Semantic Index</span><span class="qual-meta-pill">847 Records</span></div>
+                  </div>
+                  <div class="qual-search-row">
+                    <div class="qual-search-box"><span class="qual-search-query">community barriers to broadband adoption rural</span><span class="qual-search-hint">Semantic ↗</span></div>
+                    <div class="qual-filters"><span class="qual-filter active">All</span><span class="qual-filter">Interviews</span><span class="qual-filter">Reports</span><span class="qual-filter">Survey</span></div>
+                  </div>
+                  <div class="qual-body">
+                    <div class="qual-results">
+                      <div class="qual-result-item active">
+                        <div class="qual-result-top"><span class="qual-result-label">Interview · USDA Rural Dev</span><span class="qual-sim">sim <span>0.96</span></span></div>
+                        <div class="qual-result-text">"Residents cited <em>cost</em> as the primary barrier, followed by a lack of awareness that <em>affordable programs</em> existed. Even where infrastructure was present, <em>digital literacy</em> gaps prevented meaningful adoption."</div>
+                        <div class="qual-result-footer"><span class="qual-entity">Cost Barrier</span><span class="qual-entity">Digital Literacy</span><span class="qual-entity">Rural</span></div>
+                      </div>
+                      <div class="qual-result-item">
+                        <div class="qual-result-top"><span class="qual-result-label">Report · FCC Broadband Study</span><span class="qual-sim">sim <span>0.91</span></span></div>
+                        <div class="qual-result-text">Analysis of 12 rural counties found <em>device availability</em> and <em>perceived relevance</em> as consistent secondary barriers alongside infrastructure gaps.</div>
+                        <div class="qual-result-footer"><span class="qual-entity">Device Access</span><span class="qual-entity">Infrastructure</span></div>
+                      </div>
+                      <div class="qual-result-item">
+                        <div class="qual-result-top"><span class="qual-result-label">Survey · NTIA Program Eval</span><span class="qual-sim">sim <span>0.87</span></span></div>
+                        <div class="qual-result-text">68% of non-adopters indicated <em>affordability</em> as their primary reason for not subscribing to available broadband service.</div>
+                        <div class="qual-result-footer"><span class="qual-entity">Affordability</span><span class="qual-entity">Adoption Rate</span></div>
+                      </div>
+                    </div>
+                    <div class="qual-panel">
+                      <div class="qual-panel-section">
+                        <div class="qual-panel-label">Theme Distribution</div>
+                        <div class="qual-theme-row">
+                          <div class="qual-theme"><span class="qual-theme-label">Cost / Affordability</span><div class="qual-theme-bar-wrap"><div class="qual-theme-bar" style="width:82%"></div></div></div>
+                          <div class="qual-theme"><span class="qual-theme-label">Digital Literacy</span><div class="qual-theme-bar-wrap"><div class="qual-theme-bar" style="width:61%"></div></div></div>
+                          <div class="qual-theme"><span class="qual-theme-label">Infrastructure Gap</span><div class="qual-theme-bar-wrap"><div class="qual-theme-bar" style="width:54%"></div></div></div>
+                          <div class="qual-theme"><span class="qual-theme-label">Device Access</span><div class="qual-theme-bar-wrap"><div class="qual-theme-bar" style="width:38%"></div></div></div>
+                          <div class="qual-theme"><span class="qual-theme-label">Perceived Relevance</span><div class="qual-theme-bar-wrap"><div class="qual-theme-bar" style="width:29%"></div></div></div>
+                        </div>
+                      </div>
+                      <div class="qual-panel-section">
+                        <div class="qual-panel-label">Source Breakdown</div>
+                        <div class="qual-source-list">
+                          <div class="qual-source-row"><div class="qual-source-dot" style="background:var(--brown-warm)"></div><span class="qual-source-name">USDA Rural Dev</span><span class="qual-source-count">312</span></div>
+                          <div class="qual-source-row"><div class="qual-source-dot" style="background:var(--taupe)"></div><span class="qual-source-name">FCC Studies</span><span class="qual-source-count">284</span></div>
+                          <div class="qual-source-row"><div class="qual-source-dot" style="background:var(--brown-light)"></div><span class="qual-source-name">NTIA Program</span><span class="qual-source-count">251</span></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- SLIDE 4: Ops Dashboard -->
+              <div class="hc-slide hc-slide-ops">
+                <div class="ops-chrome">
+                  <div class="ops-topbar">
+                    <span class="ops-topbar-title">Operational Analytics — Resource Allocation</span>
+                    <div class="ops-status-row">
+                      <span class="ops-status"><span class="ops-status-dot dot-green"></span>3 on track</span>
+                      <span class="ops-status"><span class="ops-status-dot dot-amber"></span>1 at risk</span>
+                      <span class="ops-status"><span class="ops-status-dot dot-red"></span>1 critical</span>
+                    </div>
+                  </div>
+                  <div class="ops-body">
+                    <div class="ops-metric-row">
+                      <div class="ops-metric"><div class="ops-metric-label">Active Workstreams</div><div class="ops-metric-value">12</div><div class="ops-metric-delta delta-up">↑ 2 this week</div></div>
+                      <div class="ops-metric"><div class="ops-metric-label">Team Utilization</div><div class="ops-metric-value">84%</div><div class="ops-metric-delta delta-warn">⚠ Near capacity</div></div>
+                      <div class="ops-metric"><div class="ops-metric-label">On-Time Delivery</div><div class="ops-metric-value">91%</div><div class="ops-metric-delta delta-up">↑ 6pts vs last qtr</div></div>
+                      <div class="ops-metric"><div class="ops-metric-label">Scope Overages</div><div class="ops-metric-value">2</div><div class="ops-metric-delta delta-down">↓ flagged for review</div></div>
+                    </div>
+                    <div class="ops-lower">
+                      <div class="ops-timeline">
+                        <div class="ops-timeline-label">Workstream Progress</div>
+                        <div class="ops-workstream"><div class="ops-ws-header"><span class="ops-ws-name">Federal Broadband Analysis</span><span class="ops-ws-days">18d remaining</span></div><div class="ops-progress-wrap"><div class="ops-progress-bar progress-green" style="width:72%"></div></div></div>
+                        <div class="ops-workstream"><div class="ops-ws-header"><span class="ops-ws-name">RAG Pipeline Deployment</span><span class="ops-ws-days">5d remaining</span></div><div class="ops-progress-wrap"><div class="ops-progress-bar progress-green" style="width:89%"></div></div></div>
+                        <div class="ops-workstream"><div class="ops-ws-header"><span class="ops-ws-name">Policy Document NLP</span><span class="ops-ws-days">12d remaining</span></div><div class="ops-progress-wrap"><div class="ops-progress-bar progress-amber" style="width:44%"></div></div><div class="ops-risk-flag">⚠ Staffing gap detected</div></div>
+                        <div class="ops-workstream"><div class="ops-ws-header"><span class="ops-ws-name">Client Dashboard Q3</span><span class="ops-ws-days">2d remaining</span></div><div class="ops-progress-wrap"><div class="ops-progress-bar progress-brown" style="width:61%"></div></div><div class="ops-risk-flag" style="background:rgba(232,113,112,0.1);border-color:rgba(232,113,112,0.3);color:#c05050;">✗ Behind schedule</div></div>
+                        <div class="ops-workstream"><div class="ops-ws-header"><span class="ops-ws-name">Econometric Modeling</span><span class="ops-ws-days">24d remaining</span></div><div class="ops-progress-wrap"><div class="ops-progress-bar progress-green" style="width:31%"></div></div></div>
+                      </div>
+                      <div class="ops-right-panel">
+                        <div class="ops-right-label">Capacity by Role</div>
+                        <div class="ops-resource-row">
+                          <div class="ops-resource"><span class="ops-resource-name">Analytics</span><div class="ops-cap-wrap"><div class="ops-cap-bar" style="width:92%;background:var(--brown-light)"></div></div><span class="ops-cap-pct">92%</span></div>
+                          <div class="ops-resource"><span class="ops-resource-name">ML / NLP</span><div class="ops-cap-wrap"><div class="ops-cap-bar" style="width:78%;background:#5DCAA5"></div></div><span class="ops-cap-pct">78%</span></div>
+                          <div class="ops-resource"><span class="ops-resource-name">Research</span><div class="ops-cap-wrap"><div class="ops-cap-bar" style="width:65%;background:#5DCAA5"></div></div><span class="ops-cap-pct">65%</span></div>
+                          <div class="ops-resource"><span class="ops-resource-name">Delivery</span><div class="ops-cap-wrap"><div class="ops-cap-bar" style="width:88%;background:#EF9F27"></div></div><span class="ops-cap-pct">88%</span></div>
+                        </div>
+                        <div class="ops-alert">
+                          <div class="ops-alert-title">ML Forecast Alert</div>
+                          <div class="ops-alert-text">Analytics role projected to exceed capacity in 6 days. Recommend rebalancing 2 tasks to Research track.</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /hc-track -->
+          </div><!-- /hc-track-wrap -->
+          <div class="hc-nav">
+            <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;">
+              <div class="hc-slide-title" id="hc-slide-title">BOOM System</div>
+              <div class="hc-slide-type" id="hc-slide-type">Agentic Opportunity Intelligence</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+              <div class="hc-dots" id="hc-dots">
+                <div class="hc-dot active" onclick="hcGoTo(0)"></div>
+                <div class="hc-dot" onclick="hcGoTo(1)"></div>
+                <div class="hc-dot" onclick="hcGoTo(2)"></div>
+                <div class="hc-dot" onclick="hcGoTo(3)"></div>
+              </div>
+              <div class="hc-arrows">
+                <button class="hc-arrow-btn" onclick="hcPrev()">←</button>
+                <button class="hc-arrow-btn" onclick="hcNext()">→</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- /hc-outer -->
+      </div><!-- /hero-right -->
     </div>
     <div class="hero-scroll">
       <span>Scroll</span>
@@ -2035,16 +2430,6 @@ footer {
                 </div>
                 <div class="boom-cell decision-impact">
                   <div class="detail-label">Decision Impact</div>
-                  <div class="boom-stats">
-                    <div class="boom-stat">
-                      <div class="boom-stat-value">Earlier</div>
-                      <div class="boom-stat-label">risk detection before escalation</div>
-                    </div>
-                    <div class="boom-stat">
-                      <div class="boom-stat-value">Fewer</div>
-                      <div class="boom-stat-label">hours beyond scope</div>
-                    </div>
-                  </div>
                   <p class="detail-text">Teams completed workstreams in fewer hours than prior projections while improved division of labor reduced duplicate effort and clarified ownership. Operational response cycles accelerated as risks were surfaced sooner and addressed earlier.</p>
                 </div>
               </div>
@@ -2474,6 +2859,45 @@ function filterProjects(category, btn) {
     });
   }
 }
+// ── Hero Carousel ─────────────────────────────────────────────
+(function() {
+  var hcCur = 0, hcTotal = 4;
+  var hcTrack, hcDots, hcTitle, hcType;
+  var hcTitles = ['BOOM System','Decision Intelligence RAG','Qualitative Research DB','Ops Analytics Dashboard'];
+  var hcTypes  = ['Agentic Opportunity Intelligence','Multi-Source Retrieval System','Semantic Intelligence Layer','Resource Allocation & Risk Monitoring'];
+  var hcTimer;
+  function hcStartAuto() {
+    hcTimer = setInterval(function(){ hcGoTo(hcCur + 1); }, 4000);
+  }
+  function hcResetAuto() {
+    clearInterval(hcTimer);
+    hcStartAuto();
+  }
+  function hcInit() {
+    hcTrack = document.getElementById('hc-track');
+    hcDots  = document.querySelectorAll('#hc-dots .hc-dot');
+    hcTitle = document.getElementById('hc-slide-title');
+    hcType  = document.getElementById('hc-slide-type');
+    if (!hcTrack) return;
+    var startX = 0;
+    hcTrack.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+    hcTrack.addEventListener('touchend',   function(e){ var dx = e.changedTouches[0].clientX - startX; if (Math.abs(dx) > 40) { dx < 0 ? hcNext() : hcPrev(); } }, {passive:true});
+    hcTrack.addEventListener('mouseenter', function(){ clearInterval(hcTimer); });
+    hcTrack.addEventListener('mouseleave', hcStartAuto);
+    hcStartAuto();
+  }
+  window.hcGoTo = function(n) {
+    hcCur = (n + hcTotal) % hcTotal;
+    if (!hcTrack) hcInit();
+    hcTrack.style.transform = 'translateX(-' + (hcCur * 100) + '%)';
+    hcDots.forEach(function(d,i){ d.classList.toggle('active', i === hcCur); });
+    hcTitle.textContent = hcTitles[hcCur];
+    hcType.textContent  = hcTypes[hcCur];
+  };
+  window.hcNext = function(){ hcResetAuto(); hcGoTo(hcCur + 1); };
+  window.hcPrev = function(){ hcResetAuto(); hcGoTo(hcCur - 1); };
+  document.addEventListener('DOMContentLoaded', hcInit);
+})();
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   navigateFromHash();
@@ -2483,5 +2907,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
